@@ -43,4 +43,67 @@
   "type" : "text",
   "display_width" : null,
   "default" : "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
-} ]
+},
+{
+    "id" : "c9ffce9e-8e9f-c93c-d4b3-c70d7aaae5a7",
+    "name" : "links",
+    "label" : "links",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : null,
+      "max" : null,
+      "sorting_label_field" : null,
+      "default" : 2
+    },
+    "children" : [ {
+      "id" : "f65cc569-9b6a-db7f-931e-68c0ccc6baea",
+      "name" : "link_style",
+      "label" : "Link Style",
+      "required" : true,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "btn", "Button Primary" ], [ "btn btn--secondary", "Button Secondary" ], [ "btn btn--tertiary", "Button Tertiary" ], [ "btn btn--quaternary", "Button Quaternary" ], [ "btn btn--quinary", "Button Quinary (with arrow icon)" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : "btn"
+    }, {
+      "id" : "b05d3342-0089-6a4c-fb56-6cb6c5524516",
+      "name" : "link",
+      "label" : "Link url",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "FILE", "CONTENT", "EMAIL_ADDRESS", "BLOG", "PHONE_NUMBER" ],
+      "show_advanced_rel_options" : true,
+      "type" : "link",
+      "display_width" : null,
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "",
+          "type" : "CONTENT"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }, {
+      "id" : "e006029a-94e2-e1a3-98f6-b30809c62534",
+      "name" : "link_label",
+      "label" : "Link label",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Button ipsum"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : [ ]
+  } ]

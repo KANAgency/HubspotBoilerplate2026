@@ -3,6 +3,8 @@
     isAvailableForNewContent: false
 -->
 
+{% from 'kan-theme/templates/macros/link/link-group.html' import linkGroup %}
+
 {% set headerOptions = {
     headerClass: 'mb-xl-4',
     headingLevel: 'h2'
@@ -19,12 +21,12 @@
         {% endif %}
         {% if preamble %}
 			<p class="header__preamble font-size--preamble">
-				{{ preamble }}
+				{{ preamble|striptags }}
 			</p>
         {% endif %}
         {% if links|length %}
             <div class="header__links mt-xl">
-			{{ _links.linkGroup(links) }}
+			{{ linkGroup(links) }}
             </div>
         {% endif %}
         </header>
