@@ -157,12 +157,14 @@
       "type" : "file",
       "display_width" : null
     }, {
-      "id" : "content.media.enable_audio_toggle",
-      "name" : "enable_audio_toggle",
-      "label" : "Enable audio toggle",
-      "inline_help_text" : "Shows audio toggle button on video.",
+      "id" : "1ed39b5c-e4b2-a657-2edc-fa80fa309668",
+      "name" : "video_options",
+      "label" : "Video options",
       "required" : false,
       "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "autoplay", "Autoplay" ], [ "controls", "Show controls" ] ],
+      "multiple" : false,
       "visibility" : {
         "controlling_field" : null,
         "controlling_field_path" : "content.media.type",
@@ -171,30 +173,12 @@
         "operator" : "EQUAL",
         "access" : null
       },
-      "display" : "toggle",
-      "type" : "boolean",
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
       "display_width" : null,
-      "default" : false
-    }, {
-      "id" : "e87e132c-d863-9eb2-6d28-5ad5ff75957c",
-      "name" : "size_cover",
-      "label" : "Video size contain / cover",
-      "inline_help_text" : "Sets video size to respect aspect ratio (contain) or fill the entire container (cover).",
-      "required" : false,
-      "locked" : false,
-      "visibility" : {
-        "controlling_field" : null,
-        "controlling_field_path" : "content.media.type",
-        "controlling_value_regex" : "video",
-        "property" : null,
-        "operator" : "EQUAL",
-        "access" : null
-      },
-      "display" : "toggle",
-      "type" : "boolean",
-      "display_width" : null,
-      "default" : false
-    } ],
+      "default" : "controls"
+    }],
     "tab" : "CONTENT",
     "expanded" : false,
     "group_occurrence_meta" : null,

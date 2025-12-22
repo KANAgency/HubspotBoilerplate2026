@@ -1,0 +1,34 @@
+{% set theme = module.settings.theme %}
+
+{% set speed = module.settings.settings_speed%}
+
+<section class="logo-marquee-module py-xl-4" theme="{{ theme }}" style="{{ '--duration:' ~ speed ~ 's' }}">
+  <div class="center-grid">
+    <div class="inline-center">
+      <h2 class="heading text-center fontSize-h4">{% inline_text field="content.carousel_title" value="{{ module.content.carousel_title }}" %}</h2>
+    </div>
+  </div>
+
+  <div class="logo-marquee-module__container">
+    {% for item in module.content.carousel_row %}
+      
+      <ul class="logo-marquee-module__list" style="{{ '--quantity:' ~ item.carousel|length }}" {{ loop.index % 2 == 0 ? 'data-reverse="true"' : '' }} data-fade-in>
+        {% for item2 in item.carousel %}
+          <li class="logo-marquee-module__item" style="{{ '--position:' ~ loop.index }}">
+            {% if item2.carousel_image.src %}
+              {% set sizeAttrs = 'width="{{ item2.carousel_image.width|escape_attr }}" height="{{ item2.carousel_image.height|escape_attr }}"' %}
+              {% if item2.carousel_image.size_type == 'auto' %}
+                {% set sizeAttrs = 'width="{{ item2.carousel_image.width|escape_attr }}" height="{{ item2.carousel_image.height|escape_attr }}" style="max-width: 100%; height: auto;"' %}
+              {% elif item2.carousel_image.size_type == 'auto_custom_max' %}
+                {% set sizeAttrs = 'width="{{ item2.carousel_image.max_width|escape_attr }}" height="{{ item2.carousel_image.max_height|escape_attr }}" style="max-width: 100%; height: auto;"' %}
+              {% endif %}
+              <img class="logo-marquee-module__image" src="{{ item2.carousel_image.src|escape_url }}" alt="{{ item2.carousel_image.alt|escape_attr }}" loading="lazy" {{ sizeAttrs }}>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+    {% endfor %}
+  </div>
+</section>
+
+

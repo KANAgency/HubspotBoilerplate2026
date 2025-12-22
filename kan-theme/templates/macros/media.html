@@ -37,17 +37,6 @@
                         <source src="{{ videoLazy ? '' : video }}" {{ videoLazy ? 'data-src="{{ video }}"' : '' }} type="video/mp4">
                         Sorry, your browser doesn't support embedded videos.
                     </video>
-
-                    {% if videoAttr == mediaOptions.videoAttr %} 
-                        <button class="video-toggle-button" aria-label="Toggle video" aria-pressed="true" data-video-toggle>
-                            <svg class="video-on-icon" aria-hidden="true">
-                                <use xlink:href="#iconPlay"></use>
-                            </svg>
-                            <svg class="video-off-icon" aria-hidden="true">
-                                <use xlink:href="#iconPause"></use>
-                            </svg>    
-                        </button>
-                    {% endif %}
                 {% endif %}
             {% endif %}
         </figure>

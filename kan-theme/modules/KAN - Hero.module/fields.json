@@ -160,25 +160,6 @@
       "type" : "boolean",
       "display_width" : null,
       "default" : false
-    }, {
-      "id" : "e87e132c-d863-9eb2-6d28-5ad5ff75957c",
-      "name" : "size_cover",
-      "label" : "Video size contain / cover",
-      "inline_help_text" : "Sets video size to respect aspect ratio (contain) or fill the entire container (cover).",
-      "required" : false,
-      "locked" : false,
-      "visibility" : {
-        "controlling_field" : null,
-        "controlling_field_path" : "content.media.type",
-        "controlling_value_regex" : "video",
-        "property" : null,
-        "operator" : "EQUAL",
-        "access" : null
-      },
-      "display" : "toggle",
-      "type" : "boolean",
-      "display_width" : null,
-      "default" : false
     } ],
     "tab" : "CONTENT",
     "expanded" : false,

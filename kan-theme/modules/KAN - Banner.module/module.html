@@ -24,7 +24,9 @@
 			{{ linkGroup(module.content.links) }}
 		</div>
 		<div class="banner-module__media">
-			{{ media(module.content.media.type, module.content.media.image, module.content.media.video) }}
+			{{ media(module.content.media.type, module.content.media.image, module.content.media.video, {
+				"videoAttr": module.content.media.video_options == "autoplay" ? "autoplay playsinline muted loop" : "controls",
+			}) }}
 		</div>
 	</div>
 </section>

@@ -1,0 +1,24 @@
+.kpi-module {
+}
+.kpi-module__list {
+  row-gap: 2rem;
+  justify-items: center;
+
+  @media (--mobile-only) {
+    --grid-max-col-count: 1;
+  }
+}
+
+.kpi-module__item {
+  text-align: center;
+}
+
+.kpi-module__number {
+  --font-min-size: 3.125; /* 50px */
+  --font-max-size: 6.25; /* 140px */
+  --_spacing-end: 0.5rem;
+
+  @media (--viewport-m) {
+    --_spacing-end: 1rem;
+  }
+}

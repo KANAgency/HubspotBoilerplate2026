@@ -10,6 +10,7 @@ import SmoothScroll from "./global/SmoothScroll";
 import Accordion from './modules/Accordion';
 import ModalHandler from './modules/ModalHandler';
 import SiteAlertBannerHandler from './modules/SiteAlertBanner/SiteAlertBannerHandler';
+import NumberCounterHandler from "./modules/NumberCounterHandler";
 
 class App {
   static instance = null
@@ -22,7 +23,8 @@ class App {
         VideoLazyLoader,
         Accordion,
         ModalHandler,
-        SiteAlertBannerHandler
+        SiteAlertBannerHandler,
+        NumberCounterHandler
       ]
       this.init()
       App.instance = this

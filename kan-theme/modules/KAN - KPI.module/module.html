@@ -1,0 +1,27 @@
+{% from 'kan-theme/templates/macros/header/header.html' import header %}
+  {% set theme = module.settings.theme %}
+
+
+<section class="kpi-module center-grid py-xl-5" theme="{{ theme }}">
+  <div class="inline-center">
+  
+    {{ header(module.content.heading, module.content.preamble, false ) }}
+
+    <ul class="kpi-module__list grid grid--align-start pt-xl-3" {{ module.settings.has_animation ? 'data-number-counter-group' : '' }}>
+    {% for kpi in module.content.kpi_numbers%}  
+      <li class="kpi-module__item">
+        <div class="kpi-module__number text-heading">
+          <span data-number-counter data-number-from="0" data-number-to="{{ kpi.value }}" data-numer-step="1">{{ module.settings.has_animation ? '0' : kpi.value }}</span><span class="kpi-suffix">{{ kpi.suffix }}</span>
+        </div>
+        {% if kpi.kpi_label %}
+          <h3 class="fontSize-h5 font-heading text-uppercase" aria-label="{{ kpi.value + kpi.suffix + ' ' + kpi.kpi_label }}">{{ kpi.kpi_label }}</h3>
+        {% endif %}
+        {% if kpi.kpi_description %}
+          <p>{{ kpi.kpi_description }}</p>
+        {% endif %}
+      </li>
+    {% endfor %}
+    </ul>
+    
+  </div>
+</section>
