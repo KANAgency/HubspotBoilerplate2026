@@ -1,0 +1,48 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+{% set template_translations = load_translations('./_locales', html_lang, 'en' ) %}
+
+{% macro alertBanner(show, label, message, storageKey, link, linkLabel) %}
+    {% if show %}
+        <section 
+        class="alert-banner center-grid py-m" 
+        role="alert" 
+        aria-live="polite"
+        data-alert-banner
+        data-storage-key="alert-{{ storageKey }}"
+        >
+            <div class="alert-banner__content">
+                <p class="alert-banner__message fontSize-small">
+                <svg class="icon icon-notification" aria-hidden="true">
+                    <use xlink:href="#iconInfo"></use>
+                    </svg>
+                    <span>
+                        <strong>{{ label }}</strong> {{ message }} 
+                        {% if link and linkLabel %}
+                            <a class="read-more font-bold" href="{{ link.url.href|escape_url }}"
+                            {% if link.open_in_new_tab %}
+                                target="_blank"
+                            {% endif %}
+                            {% if link.rel %}
+                                rel="{{ link.rel|escape_attr }}"
+                            {% endif %}>
+                                {{ linkLabel }}
+                            </a>
+                        {% endif %}
+                    </span>
+                </p>
+                <button 
+                class="alert-banner__dismiss" 
+                aria-label="{{ template_translations.alertDismiss.message }}"
+                data-alert-dismiss
+                >
+                <svg class="icon icon-close" aria-hidden="true">
+                    <use xlink:href="#iconClose"></use>
+                    </svg>			
+                </button>
+            </div>
+        </section>
+    {% endif %}
+{% endmacro %}

@@ -1,0 +1,37 @@
+{
+  "prev": {
+    "message": "Previous",
+    "description": null,
+    "placeholders": null
+  },
+  "next": {
+    "message": "Next",
+    "description": null,
+    "placeholders": null
+  },
+  "page": {
+    "message": "Page",
+    "description": null,
+    "placeholders": null
+  },
+  "prevPage": {
+    "message": "Previous page",
+    "description": null,
+    "placeholders": null
+  },
+  "nextPage": {
+    "message": "Next page",
+    "description": null,
+    "placeholders": null
+  },
+  "description": {
+    "message": "Post pagination",
+    "description": null,
+    "placeholders": null
+  },
+  "of": {
+    "message": "of",
+    "description": null,
+    "placeholders": null
+  }
+}

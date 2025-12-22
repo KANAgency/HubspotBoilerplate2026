@@ -1,0 +1,16 @@
+
+{% from 'kan-theme/templates/macros/header/header.html' import header %}
+
+{% set textAlign = module.text_align.text_align %}
+{% set textAlignClass = '' %}
+
+{% if textAlign == 'CENTER' %}
+	{% set textAlignClass = 'text-center' %}
+{% elif textAlign == 'RIGHT' %}
+  {% set textAlignClass = 'text-right' %}
+{% endif %}
+
+
+<section class="page-header-module center-grid py-xl-6" >	
+	{{ header(module.heading, module.preamble, false, { headerClass: ['page-header-module__header', textAlignClass]|join(' '), headingLevel: module.headingLevel } ) }}
+</section>

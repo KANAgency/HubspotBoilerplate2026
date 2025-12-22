@@ -1,0 +1,19 @@
+/**
+ * Layer order 
+ * Ref: https://developer.mozilla.org/en-US/docs/Web/CSS/@layer
+ *
+*/
+@layer vendor, reset, props, elements, utilities, globals, components, blocks, templates;
+
+/**
+ * imports 
+*/
+
+@import-glob '01-Setup/**/*.css' layer(reset);
+@import-glob '02-Props/**/*.css' layer(props);
+@import-glob '03-Elements/**/*.css' layer(elements);
+@import-glob '04-Utilities/**/*.css' layer(utilities);
+@import-glob '05-Globals/**/*.css' layer(globals);
+@import-glob '06-Components/**/*.css' layer(components);
+@import-glob '07-Modules/**/*.css' layer(blocks);
+@import-glob '08-Templates/**/*.css' layer(templates);

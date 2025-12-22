@@ -1,0 +1,29 @@
+<!--
+    templateType: page
+    isAvailableForNewContent: false
+-->
+{% from "kan-theme/templates/macros/link/link-item.html" import linkItem %}
+
+{% set linkOptions = {
+    linkClass: '',
+    icon: 'iconArrowUp',
+    iconClass: 'icon--arrow-up'
+} %}
+
+{% macro linkItemIcon(link, options = linkOptions) %}
+    {% set linkClass = options.linkClass|default(linkOptions.linkClass) %}
+    {% set icon = options.icon|default(linkOptions.icon) %}
+    {% set iconClass = options.iconClass|default(linkOptions.iconClass) %}
+    
+    {% if link %}
+        {% call linkItem(link.link, link.link_label, {
+            "style": ['text-link--icon', 'text-link--discrete', linkClass]|join(' '),
+            "hasCaller": true
+        }) %}
+            <span>{{ label }}</span>
+            <svg class="{{ ['icon', iconClass]|join(' ') }}" aria-hidden="true">
+                <use xlink:href="#{{ icon }}"></use>
+            </svg>
+        {% endcall %}
+    {% endif %}
+{% endmacro %}

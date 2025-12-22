@@ -1,0 +1,18 @@
+.simple-menu {
+}
+
+.simple-menu__list {
+  list-style-type: none;
+  padding-inline-start: 0;
+  display: grid;
+  gap: 0.5rem;
+}
+
+.simple-menu__menu-item {
+  --font-min-size: var(--font-size-h5-desktop);
+  --font-max-size: var(--font-size-h4-desktop);
+
+  font-size: var(--fluid-font-size);
+  text-decoration-thickness: 2px;
+  text-underline-offset: 0.2em;
+}

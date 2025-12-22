@@ -1,0 +1,44 @@
+:root {
+  --color-neutral-light: #f9f9f9;
+  --color-neutral-border: #e0e0e0;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: var(--color-primary-bright);
+
+  &:not(:last-child) {
+    margin-block-end: 2rem;
+  }
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid var(--color-neutral-border);
+}
+
+th {
+  background-color: var(--color-secondary-dark);
+  color: var(--color-primary-dark);
+  font-weight: 600;
+}
+
+tr:nth-child(odd) td {
+  background-color: var(--color-neutral-light);
+}
+
+td {
+  transition: background-color 200ms ease-in-out;
+}
+
+tr:hover td {
+  background-color: color-mix(
+    in oklab,
+    var(--color-neutral-light) 100%,
+    var(--color-text-primary) 2%
+  );
+}
+

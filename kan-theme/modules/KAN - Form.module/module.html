@@ -1,0 +1,32 @@
+{% from 'kan-theme/templates/macros/header/header.html' import header %}
+
+{% set heading = module.content.heading %}
+{% set preamble = module.content.preamble %}
+
+<section class="form-module center-grid py-xl-6" theme="dark">
+  <div class="form-module__container py-xl-4 px-xl-4" theme="light secondary">
+    <div class="form-module____grid grid grid--2">
+      {{ header(heading, preamble, false, {  }) }}
+      <div class="hubspot-form">
+
+        {% if blog.name == 'Produkter' or blog.id == "274169432288" %}
+          <div class="current-product mb-xl-2">
+            <svg class="current-product__icon" aria-hidden="true">
+              <use xlink:href="#iconCheckmark"></use>
+            </svg>
+            <span class="current-product__title text-heading font-size--h5">{{ content.title }}</span>
+          </div>
+        {% endif %}
+
+        {% form
+          form_to_use="{{ module.form_field.form_id }}"
+          response_response_type="{{ module.form_field.response_type }}"
+          response_message="{{ module.form_field.message }}"
+          response_redirect_id="{{ module.form_field.redirect_id }}"
+          response_redirect_url="{{module.form_field.redirect_url}}"
+          gotowebinar_webinar_key="{{ module.form_field.gotowebinar_webinar_key }}"
+        %}
+      </div>
+    </div>
+  </div>
+</section>

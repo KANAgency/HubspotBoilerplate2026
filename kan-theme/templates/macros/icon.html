@@ -1,0 +1,23 @@
+<!--
+    templateType: page
+    isAvailableForNewContent: false
+-->
+
+{% set iconOptions = {
+        size: 'small',
+        attributes: '',
+        class: '',
+    }
+%}
+
+{% macro icon(name, options = iconOptions) %}
+    {% set size = options.size|default(iconOptions.size) %}
+    {% set attributes = options.attributes|default(iconOptions.attributes) %}
+    {% set class = options.class|default(iconOptions.class) %}
+
+    {% if name %}
+        <svg class="icon {{ size ? 'icon--' ~ size : '' }} {{ class }}" aria-hidden="true" role="presentation" {{ attributes }}>
+            <use xlink:href="#{{ name }}"></use>
+        </svg>
+    {% endif %}
+{% endmacro %}

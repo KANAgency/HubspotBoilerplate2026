@@ -1,0 +1,29 @@
+{% from 'kan-theme/templates/macros/link/link-group.html' import linkGroup %}
+{% from 'kan-theme/templates/macros/media.html' import media %}
+
+{% set heading_tag = module.content.heading_tag %}
+{% set heading_size = module.content.heading_class %}
+{% set reverse = module.settings.reverse %}
+
+<section class="hero-module center-grid" theme="dark">
+	<div class="grid grid--split py-xl-4 grid--align-center{% if reverse %} reverse{% endif %}">
+		<div class="hero-module__content"> 
+			{% if module.content.heading %}
+				<{{heading_tag}} class="heading {{ heading_size }}">
+					{{ module.content.heading }}
+				</{{heading_tag}}>
+			{% endif %}
+
+			{% if module.content.preamble %}
+				<div class="font-size--preamble" >
+					{{ module.content.preamble }}
+				</div>
+			{% endif %}
+			
+			{{ linkGroup(module.content.links) }}
+		</div>
+		<div class="hero-module__media">
+			{{ media(module.content.media.type, module.content.media.image, module.content.media.video) }}
+		</div>
+	</div>
+</section>

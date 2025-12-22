@@ -1,0 +1,21 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+{##
+# GENERATE UNIQUE STRING ACTION
+#
+# Generate a random number together with the given string to create a unique string
+#}
+
+{%- macro _random_int() -%}
+    {%- for n in [0,1,2,3,4,5] -%}
+        {{ [0,1,2,3,4,5,6,7,8,9]|random }}
+    {%- endfor -%}
+{%- endmacro -%}
+
+{%- macro uuid() -%}
+    {%- set parts = [_random_int(), _random_int(), _random_int(), _random_int(), _random_int()] -%}
+    {%- set unique_id = parts|join('-') -%}
+    {{ unique_id }}
+{%- endmacro -%}

@@ -1,0 +1,22 @@
+{
+  "openLabel": {
+    "message": "Meny",
+    "description": null,
+    "placeholders": null
+  },
+  "closeLabel": {
+    "message": "Stäng",
+    "description": null,
+    "placeholders": null
+  },
+  "ariaOpenLabel": {
+    "message": "Öppna modal",
+    "description": null,
+    "placeholders": null
+  },
+  "ariaCloseLabel": {
+    "message": "Stäng modal",
+    "description": null,
+    "placeholders": null
+  }
+}

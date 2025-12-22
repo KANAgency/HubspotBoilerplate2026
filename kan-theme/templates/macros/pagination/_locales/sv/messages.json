@@ -1,0 +1,37 @@
+{
+  "prev": {
+    "message": "Föregående",
+    "description": null,
+    "placeholders": null
+  },
+  "next": {
+    "message": "Nästa",
+    "description": null,
+    "placeholders": null
+  },
+  "page": {
+    "message": "Sida",
+    "description": null,
+    "placeholders": null
+  },
+  "prevPage": {
+    "message": "Föregående sida",
+    "description": null,
+    "placeholders": null
+  },
+  "nextPage": {
+    "message": "Nästa sida",
+    "description": null,
+    "placeholders": null
+  },
+  "description": {
+    "message": "Post paginering",
+    "description": null,
+    "placeholders": null
+  },
+  "of": {
+    "message": "av",
+    "description": null,
+    "placeholders": null
+  }
+}

@@ -1,0 +1,62 @@
+[
+    {
+      "id" : "25ce7a24-25ce-b10b-fd0d-04a9c1a49185",
+      "name" : "enabled",
+      "label" : "Enable alert banner",
+      "required" : false,
+      "locked" : false,
+      "display" : "toggle",
+      "type" : "boolean",
+      "display_width" : null,
+      "default" : false
+    }, {
+      "id" : "25ce7a24-25ce-b10b-fd0d-15c8c1a49185",
+      "name" : "text_label",
+      "label" : "Label",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : ""
+    }, {
+      "id" : "78ce7a24-25ce-a29a-fd0d-15c8c1a49185",
+      "name" : "message",
+      "label" : "Message",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : ""
+    }, {
+      "id" : "78ce7a24-12ab-c39a-fd0d-15c8c1a49185",
+      "name" : "link_label",
+      "label" : "Link label",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : ""
+    }, {
+      "id" : "ea2e7a24-25ce-b10b-fd0d-15c8c1a49185",
+      "name" : "link_field",
+      "label" : "Link",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "BLOG" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "display_width" : null,
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "EXTERNAL",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }
+]

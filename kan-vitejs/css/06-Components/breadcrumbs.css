@@ -1,0 +1,35 @@
+.breadcrumbs {
+  /* position: absolute;
+  inset-inline: 0;
+  z-index: var(--z-above); */
+  grid-column: 1 / -1;
+  grid-row: 1;
+  background-color: transparent;
+}
+
+.breadcrumbs__list {
+  list-style: none;
+  display: flex;
+  padding-inline-start: 0;
+}
+
+.breadcrumbs__list-item {
+  white-space: nowrap;
+
+  &:last-child {
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  &:not(:last-child)::after {
+    content: "/";
+    margin-left: 0.125rem;
+    margin-right: 0.25rem;
+  }
+}
+
+.breadcrumbs__list-item a[aria-current="page"] {
+  &:not([theme="dark"] &) {
+    opacity: 0.5;
+  }
+}

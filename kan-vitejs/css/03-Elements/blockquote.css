@@ -1,0 +1,24 @@
+blockquote:not([class]) {
+  padding-inline-start: 2rem;
+  padding-block: 1rem;
+  border-inline-start: 0.5rem solid var(--color-border-primary);
+
+  &:not(:last-child) {
+    margin-block-end: 1.4em;
+  }
+
+  &,
+  * {
+    --font-min-size: var(--font-size-quote-mobile);
+    --font-max-size: var(--font-size-quote-desktop);
+
+    font-family: var(--fontFamily-body);
+    font-weight: var(--fontWeight-quote);
+    font-size: var(--fluid-font-size);
+    line-height: 1.2;
+  }
+
+  & * {
+    margin-block-end: 0;
+  }
+}

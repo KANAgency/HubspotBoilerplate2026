@@ -1,0 +1,136 @@
+.site-footer {
+  position: relative;
+  padding-block-end: 2.5rem;
+
+  .text-heading {
+    --_spacing-start: 0;
+    --_spacing-end: 0;
+  }
+}
+
+.site-footer__menu-container {
+  .simple-menu__list {
+    padding-inline-start: 0;
+    list-style-type: none;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+
+    @media (--viewport-sm) {
+      column-gap: 2.5rem;
+      justify-content: start;
+    }
+  }
+}
+
+.site-footer__simple-menu {
+  @media (--viewport-sm) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.25rem;
+    justify-content: flex-end;
+  }
+
+  .simple-menu__list {
+    grid-template-columns: 1fr 1fr;
+    padding-inline-start: 0;
+    list-style-type: none;
+
+    @media (--viewport-sm) {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 1.25rem;
+    }
+  }
+
+  .simple-menu__menu-item {
+    color: var(--color-primary-bright);
+  }
+}
+
+.site-footer__top {
+  display: grid;
+  gap: 3.125rem;
+
+  @media (--viewport-sm) {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.site-footer__info {
+  --spacing-min-size: var(--spacing-2XL-mobile);
+  --spacing-max-size: var(--spacing-4XL-desktop);
+
+  display: flex;
+  justify-content: space-between;
+  gap: var(--fluid-spacing);
+
+  @media (--viewport-sm) {
+    justify-content: flex-end;
+  }
+
+  @media (--mobile-only) {
+    order: -1;
+  }
+}
+
+.site-footer__address,
+.site-footer__social {
+  flex: 1 1 50%;
+  font-style: normal;
+
+  @media (--viewport-sm) {
+    flex: 0 1 auto;
+  }
+}
+
+.site-footer__info-label {
+  text-transform: uppercase;
+  margin-block-end: 1.875rem;
+  font-size: 0.875rem;
+  line-height: 1.2;
+}
+
+.site-footer__address-text,
+.site-footer__social-links a,
+.site-footer__contact-links a,
+.site-footer__simple-menu .simple-menu__menu-item {
+  --font-min-size: 1.25;
+  --font-max-size: 1.5;
+  font-size: var(--fluid-font-size);
+}
+
+.site-footer__social-links {
+}
+
+.site-footer__bottom {
+  display: grid;
+  align-items: flex-start;
+  gap: 3.125rem;
+
+  @media (--viewport-sm) {
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+}
+
+.site-footer__contact-links {
+  @media (--viewport-sm) {
+    flex-direction: row;
+    column-gap: 1.5rem;
+  }
+}
+
+.site-footer__copyright {
+  @media (--mobile-only) {
+    display: block;
+    margin-block-start: 2.5rem;
+    text-align: center;
+  }
+
+  @media (--viewport-sm) {
+    --font-min-size: 1.25;
+    --font-max-size: 1.5;
+    font-size: var(--fluid-font-size);
+  }
+}

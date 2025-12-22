@@ -1,0 +1,26 @@
+[theme="light"],
+[theme="dark"],
+.bg-dark,
+.bg-light {
+  background-color: var(--color-surface-primary);
+  color: var(--color-text-primary);
+}
+
+[theme="light secondary"],
+[theme="dark secondary"],
+.bg-dark,
+.bg-light {
+  background-color: var(--color-surface-secondary);
+  color: var(--color-text-primary);
+}
+
+[theme*="light"],
+:root {
+  --selection-bg: var(--color-brand-sea);
+  --selection-color: var(--color-text-inverted);
+}
+
+[theme*="dark"] {
+  --selection-bg: var(--color-primary-bright);
+  --selection-color: var(--color-primary-dark);
+}

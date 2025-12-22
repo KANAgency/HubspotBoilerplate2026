@@ -1,0 +1,116 @@
+button {
+  color: inherit;
+  appearance: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+
+.btn,
+.hs-button {
+  --font-min-size: var(--btn-font-size-mobile);
+  --font-max-size: var(--btn-font-size-desktop);
+
+  position: relative;
+  display: inline-grid;
+  align-items: center;
+  column-gap: 0.5rem;
+  padding-block: var(--btn-default-p-block-mobile);
+  padding-inline: var(--btn-default-p-inline-mobile);
+  background-color: var(--btn-bg);
+
+  font-family: var(--fontFamily-body);
+  font-size: var(--fluid-font-size);
+  line-height: var(--fontLh-buttons);
+  font-weight: var(--fontWeight-body);
+  color: var(--btn-color);
+  text-align: center;
+  text-decoration: none;
+  border-radius: 999px;
+  border-width: 0.0625rem;
+  border-style: solid;
+  border-color: var(--btn-border-color);
+  box-shadow: var(--btn-shadow);
+
+  transition-property:
+    color, background-color, border-color, drop-shadow, opacity;
+  transition-duration: 350ms;
+  transition-timing-function: ease-in-out;
+  cursor: pointer;
+
+  @media (--viewport-m) {
+    padding-block: var(--btn-default-p-block-desktop);
+    padding-inline: var(--btn-default-p-inline-desktop);
+  }
+
+  /* Button default states */
+  &:hover,
+  &:active {
+    background-color: var(--btn-bg-hover);
+    color: var(--btn-color-hover);
+    border-color: var(--btn-border-color-hover);
+    opacity: var(--btn-hover-opacity);
+  }
+
+  &:focus {
+    outline: 0;
+  }
+
+  &:focus-visible {
+    background-color: var(--btn-bg-hover);
+    color: var(--btn-color-hover);
+    border-color: var(--btn-border-color-hover);
+    box-shadow: var(--btn-shadow-focus);
+  }
+
+  &:disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}
+
+/* Secondary - Ghost */
+.btn--secondary {
+  background-color: var(--btn-secondary-bg);
+  color: var(--btn-secondary-color);
+  border-color: var(--btn-secondary-border-color);
+  box-shadow: var(--btn-secondary-shadow);
+
+  /* Button default states */
+  &:hover,
+  &:active {
+    background-color: var(--btn-secondary-bg-hover);
+    color: var(--btn-secondary-color-hover);
+    border-color: var(--btn-secondary-border-color-hover);
+  }
+
+  &:focus-visible {
+    background-color: var(--btn-secondary-bg-hover);
+    color: var(--btn-secondary-color-hover);
+    border-color: var(--btn-secondary-border-color-hover);
+    box-shadow: var(--btn-secondary-shadow-focus);
+  }
+}
+
+.btn--small {
+  font-size: 0.875rem; /* 14px */
+
+  padding-block: var(--btn-small-p-block-mobile);
+  padding-inline: var(--btn-small-p-inline-mobile);
+
+  @media (--viewport-m) {
+    padding-block: var(--btn-small-p-block-desktop);
+    padding-inline: var(--btn-small-p-inline-desktop);
+  }
+}
+
+.btn--icon {
+  grid-template-columns: 1.5rem auto;
+
+  .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

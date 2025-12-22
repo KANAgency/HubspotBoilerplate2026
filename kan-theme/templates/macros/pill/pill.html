@@ -1,0 +1,32 @@
+<!--
+    templateType: page
+    isAvailableForNewContent: false
+-->
+{% from 'kan-theme/templates/macros/link/link-item.html' import linkItem %}
+
+{% macro pill(label, pillLink = '', icon = '', options = {}) %}
+    {% set pillClass = "pill font-size--small"%}
+    {% if pillLink %}
+        {% call linkItem(pillLink, label, {
+            "style": pillClass,
+            "hasCaller": true
+        }) %}
+            {% if icon %}
+                <svg class="pill__icon" aria-hidden="true">
+                    <use xlink:href="#{{ icon|escape_html }}"></use>
+                </svg>
+            {% endif %}
+            {{ label|escape_html }}
+        {% endcall %}
+
+    {% else %}
+        <span class="{{ pillClass }}">
+        {% if icon %}
+            <svg class="pill__icon" aria-hidden="true">
+                <use xlink:href="#{{ icon|escape_html }}"></use>
+            </svg>
+        {% endif %}
+            {{ label|escape_html }}
+        </span>
+    {% endif %}
+{% endmacro %}

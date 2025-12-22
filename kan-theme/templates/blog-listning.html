@@ -1,0 +1,63 @@
+<!--
+  templateType: blog_listing
+  isAvailableForNewContent: true
+  label: KAN - Blog listing
+  screenshotPath: ../images/template-previews/blog-index.png
+-->
+{% extends "./layouts/base.html" %}
+
+{# Imports #}
+{% from "kan-theme/templates/macros/breadcrumbs.html" import breadcrumbs %}
+{% from "kan-theme/templates/macros/teasers/teaser-default.html" import teaserDefault %}
+{% from "kan-theme/templates/macros/pagination/pagination.html" import pagination %}              
+
+{% block body %}
+    {{ breadcrumbs() }}
+  <section class="center-grid py-xl-4" theme="light">
+  
+    <ul class="grid grid--3 grid--fill grid--r-gap-large pb-xl-4">
+        {% for content in contents %}
+
+            {% set post_tags = [] %}
+              
+            {% for tag in content.tag_list %}
+                {% do post_tags.append({
+                "tag_label": tag.name,
+                "icon": "",
+                "link": { 
+                    "url": { 
+                    "href": blog_tag_url(tag.id, tag.slug)
+                    }, 
+                    "open_in_new_tab": false,
+                    "rel": ""
+                }
+                }) %}
+            {% endfor %}
+
+            {{ teaserDefault(
+            {
+                "type": "image",
+                "image": {
+                "src": content.featured_image,
+                "alt": content.featured_image_alt_text,
+                "width": content.featured_image_width,
+                "height": content.featured_image_height,
+                "loading": loop.index > 8 ? 'lazy' : 'eager'
+                },
+                "video": false
+            },
+            content.name ,
+            content.widgets.module_17659680249203.body.preamble is truthy ? content.widgets.module_17659680249203.body.preamble : content.post_summary|safe|striptags|truncate(255, false),
+            { "url": { "href": content.absolute_url } },
+            {
+                tags: post_tags,
+                headingClass: 'font-size--h4'
+            }
+            ) }}
+            
+        {% endfor %}    
+    </ul>
+    {{ pagination() }}
+  </section>
+{% endblock body %}
+  

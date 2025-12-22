@@ -1,0 +1,64 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+
+{% set template_translations = load_translations('kan-theme/templates/macros/modal/_locales', html_lang, 'en' ) %}
+
+{% set modalOptions = {
+    theme: 'light',
+    dialogClass: 'modal py-xl-3 px-xl-3',
+    dialogAttr: '',
+    closeClass: 'modal__close-button'
+} %}
+
+{% macro modal(id, options = modalOptions) %}
+    {% set theme = options.theme|default(modalOptions.theme)  %}
+    {% set dialogClass = options.dialogClass|default(modalOptions.dialogClass)  %}
+    {% set dialogAttr = options.dialogAttr|default(modalOptions.dialogAttr)  %}
+    {% set closeClass = options.closeClass|default(modalOptions.closeClass)  %}
+
+    <dialog class="{{ dialogClass }}" data-modal="{{ id }}" theme="{{ theme }}" data-lenis-prevent {{ dialogAttr }}>
+        {{ modal_close_button(id, {'style': closeClass, 'icon': 'iconClose'}) }}
+        <div class="modal-content">
+            {{ caller() }}
+        </div>
+    
+    </dialog>
+{% endmacro %}
+
+{% set triggerOptions = {
+    style: 'btn',
+    icon: ''
+} %}
+
+{% macro modal_close_button(id, options = triggerOptions) %}
+    {% set style = options.style|default(triggerOptions.style)  %}
+    {% set icon = options.icon|default(triggerOptions.icon)  %}
+
+    <button class="{{ style }}" data-modal-close="{{ id }}" aria-label="{{ template_translations.ariaCloseLabel.message }}" autofocus>
+        {% if icon %}
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#{{ icon }}"></use>
+            </svg>
+        {% endif %}
+        <span class="modal__close-label">
+        {{ template_translations.closeLabel.message }}
+        </span>
+    </button>
+{% endmacro %}
+
+
+{% macro modal_trigger(id, label, options = triggerOptions) %}
+    {% set style = options.style|default(triggerOptions.style)  %}
+    {% set icon = options.icon|default(triggerOptions.icon)  %}
+
+    <button class="{{ style }}" data-modal-open="{{ id }}" aria-label="{{ template_translations.ariaOpenLabel.message }}">
+        {% if icon %}
+            <svg class="icon" aria-hidden="true">
+                <use xlink:href="#{{ icon }}"></use>
+            </svg>
+        {% endif %}
+        {{ label }}
+    </button>
+{% endmacro %}

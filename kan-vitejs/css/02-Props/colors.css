@@ -1,0 +1,69 @@
+:root {
+  /* Brand colors */
+  --color-primary-dark: var(--color-ui-dark);
+  --color-primary-bright: var(--colo-brand-secondary);
+
+  --color-brand-ocean: #071f31;
+  --color-brand-sea: #0f324d;
+  --color-brand-signal: #97171f;
+  --colo-brand-secondary: #eeeeee;
+
+  --color-surface-dark: var(--color-brand-sea);
+  --color-surface-light: var(--colo-brand-secondary);
+
+  --color-ui-dark: #000000;
+  --color-ui-dark-70: #616161;
+  --color-ui-dark-40: #bcbcbc;
+  --color-ui-dark-20: #ddd;
+  --color-ui-dark-10: #f2f2f2;
+  --color-ui-sand-darker: #f3e4da;
+
+  --background-image-overlay: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0) 0%,
+    #000 100%
+  );
+
+  &,
+  [theme*="light"] {
+    /* Text colors */
+    --color-text-primary: var(--color-primary-dark);
+    --color-text-secondary: color-mix(
+      in oklab,
+      var(--color-ui-dark) 50%,
+      transparent
+    );
+    --color-text-inverted: var(--color-primary-bright);
+
+    /* Background colors */
+    --color-surface-primary: var(--color-white);
+    --color-surface-secondary: var(--color-surface-light);
+
+    /* Border colors */
+    --color-border-primary: var(--color-primary-dark);
+    --color-border-secondary: var(--color-ui-dark-70);
+  }
+
+  [theme*="dark"] {
+    /* Text colors */
+    --color-text-primary: var(--color-primary-bright);
+    --color-text-secondary: var(--color-ui-dark-40);
+    --color-text-inverted: var(--color-primary-dark);
+
+    /* Background colors */
+    --color-surface-primary: var(--color-surface-dark);
+    --color-surface-secondary: var(--color-brand-ocean);
+
+    /* Border colors */
+    --color-border-primary: var(--color-primary-bright);
+    --color-border-secondary: var(--color-ui-dark-10);
+  }
+
+  /* Utility */
+  --color-black: #000000;
+  --color-white: #ffffff;
+
+  /* Error colors */
+  --color-text-error: var(--color-brand-signal);
+  --color-border-error: var(--color-brand-signal);
+}

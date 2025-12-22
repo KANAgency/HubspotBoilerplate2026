@@ -1,0 +1,97 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+
+{% set template_translations = load_translations('kan-theme/templates/macros/language-picker/_locales', html_lang, 'en' ) %}
+
+{% if html_lang == 'en' %}
+    {% set en_label = 'English' %}
+    {% set sv_label = 'Swedish' %}
+{% elif html_lang == 'sv' %}
+    {% set en_label = 'Engelska' %}
+    {% set sv_label = 'Svenska' %}
+{% endif %}
+
+{% set language_map = {
+    "en": en_label,
+    "sv": sv_label
+    } 
+%}
+
+{% set flagIcon_map = {
+    "en": "#icon-flag-gb",
+    "sv": "#icon-flag-se"
+    }
+%}
+
+{% if is_list_view %}
+    {% set current_language = group.language %}
+    {% set translation_dict = group.translations %}
+{% else %}
+    {% set current_language = html_lang %}
+    {% set translation_dict = content.translated_content|sort(False, False, 'language') %}
+{% endif %}
+
+
+
+{% macro languagePicker(buttonId, panelId, options = language_options) %}
+    <div class="language-picker-container" data-lang-picker>
+    
+        <button
+            class="lang-picker-toggle font-size--small"
+            id="{{ buttonId }}"
+            aria-expanded="false"
+            aria-controls="{{ panelId }}"
+            aria-label="{{ template_translations.toggle_label.message }}"
+            data-accordion-trigger
+        >
+            <svg class="lang-icon" aria-hidden="true">
+                <use xlink:href="{{ flagIcon_map[current_language] }}"></use>
+            </svg>  
+            <span>{{ language_map[current_language] }}</span>
+            <svg class="icon icon-chev" aria-hidden="true">
+                <use xlink:href="#iconChevronDown"></use>
+            </svg>
+        </button>
+
+        <div id="{{ panelId }}" class="language-picker" aria-labelledby="{{ buttonId }}">
+            <ul class="lang-list">
+            {% if translation_dict|length %}
+                    {# <li class="lang-item font-size--small">
+                        <a class="lang-link current-lang" href="#" aria-label="{{ template_translations.switch_to.message + ' ' + language_map[current_language] }}">
+                            <svg class="lang-icon" aria-hidden="true">
+                                <use xlink:href="{{ flagIcon_map[current_language] }}"></use>
+                            </svg>  
+                            <span>{{ language_map[current_language] }}</span>
+                        </a>
+                    </li> #}
+                    {% for item in translation_dict  %}
+                        <li class="lang-item font-size--small">
+                            <a class="lang-link" href="{{ item.absoluteUrl }}" aria-label="{{ template_translations.switch_to.message + ' ' + language_map[item.language] }}">
+                                <svg class="lang-icon" aria-hidden="true">
+                                    <use xlink:href="{{ flagIcon_map[item.language] }}"></use>
+                                </svg>    
+                                <span>{{ language_map[item.language] }}</span>
+                            </a>
+                        </li>
+                    {% endfor %}
+                {% else %}
+                    {% for lang_code, lang_name in language_map.items() %}
+                        {# Only display languages that are not the current language #}
+                        {% if lang_code != current_language %}
+                        <li class="lang-item font-size--small">
+                            <a class="lang-link {{ lang_code == current_language ? 'current-lang' : ''}}" href="/{{ lang_code }}" aria-label="{{ template_translations.switch_to.message + ' ' + lang_name }}">
+                                <svg class="lang-icon" aria-hidden="true">
+                                    <use xlink:href="{{ flagIcon_map[lang_code] }}"></use>
+                                </svg>    
+                                <span>{{ lang_name }}</span>
+                            </a>
+                        </li>
+                        {% endif %}
+                    {% endfor %}
+                {% endif %}
+            </ul>
+        </div>
+    </div>
+{% endmacro %}

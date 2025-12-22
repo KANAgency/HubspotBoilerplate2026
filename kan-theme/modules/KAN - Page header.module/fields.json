@@ -1,0 +1,46 @@
+[ {
+  "id" : "2becc8b3-59ab-fa98-85da-44e751886252",
+  "name" : "headingLevel",
+  "label" : "Heading Level",
+  "required" : false,
+  "locked" : false,
+  "display" : "select",
+  "choices" : [ [ "h1", "H1" ], [ "h2", "H2" ], [ "h3", "H3" ] ],
+  "multiple" : false,
+  "reordering_enabled" : true,
+  "preset" : null,
+  "type" : "choice",
+  "display_width" : null,
+  "default" : "h1"
+}, {
+  "id" : "text_align",
+  "name" : "text_align",
+  "label" : "Text alignment",
+  "required" : false,
+  "locked" : false,
+  "type" : "textalignment",
+  "display_width" : null,
+  "default" : {
+    "text_align" : "LEFT"
+  }
+}, {
+  "id" : "9f8afcf3-abc6-5d3d-fb8a-a61403d7ad86",
+  "name" : "heading",
+  "label" : "Heading",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Rubrik Lorem ipsum dolar sit amet"
+}, {
+  "id" : "55e41ca7-a44b-1ea2-02e9-32b24a96c1c6",
+  "name" : "preamble",
+  "label" : "Preamble",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : "Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+} ]

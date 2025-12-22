@@ -1,0 +1,56 @@
+.font-body {
+  font-family: var(--fontFamily-body);
+}
+
+.font-heading {
+  font-family: var(--fontFamily-heading);
+}
+
+.font-weight-body {
+  font-weight: var(--fontWeight-body);
+}
+
+.font-weight-heading {
+  font-weight: var(--fontWeight-heading);
+}
+
+.font-bold {
+  font-weight: var(--fontWeight-bold);
+}
+
+.font-emphasis {
+  font-weight: var(--fontWeight-emphasis);
+}
+
+.font-thin {
+  font-weight: var(--fontWeight-thin);
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-uppercase {
+  text-transform: uppercase;
+}
+
+.text-primary {
+  color: var(--color-text-primary);
+}
+.text-secondary {
+  color: var(--color-text-secondary);
+
+  &.text-link {
+    &:hover {
+      color: var(--color-text-primary);
+    }
+  }
+}

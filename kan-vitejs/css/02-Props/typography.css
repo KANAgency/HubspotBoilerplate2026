@@ -1,0 +1,62 @@
+/** 
+ * Font sizes
+ *
+ * All font sizes are in rem and are set as custom properties without the rem unit.
+ * The reason for this is to work with the fluid typography setup in the fluidTypography.css file.
+ * The fluid typography setup calculates the font size based on the viewport width.
+ *
+ * For more information on fluid typography, see the fluidTypography.css file and it's references.
+ *
+ *
+ * DON'T ADD UNITS TO THE VALUES!
+**/
+
+:root {
+  /* Static Fonts */
+  --fontFamily-body: "Inter", system-ui, sans-serif;
+  --fontFamily-heading: "Canela Deck", serif;
+  --fontWeight-body: 400;
+  --fontWeight-thin: 300;
+  --fontWeight-emphasis: 600;
+  --fontWeight-quote: 600;
+  --fontWeight-heading: 300;
+  --fontWeight-bold: 700;
+  --fontLh-body: 1.4;
+  --fontLh-heading: 1.2;
+  --fontLh-buttons: 1.2;
+  --fontLh-quote: 1.2;
+
+  /* All values must be stored in REM without the unit to work properly with the fluid size calculations */
+
+  /* Mobile body sizes */
+  --font-size-body-mobile: 1; /* 16px */
+  --font-size-body-large-mobile: 1.125; /* 20px */
+  --font-size-body-small-mobile: 0.875; /* 14px */
+
+  /* Desktop body sizes */
+  --font-size-body-desktop: 1; /* 16px */
+  --font-size-body-large-desktop: 1.5; /* 24px */
+  --font-size-body-small-desktop: 0.875; /* 14px */
+
+  /* Mobile heading sizes: */
+  --font-size-h1-mobile: 3; /* 48px */
+  --font-size-h2-mobile: 2.5; /* 40px */
+  --font-size-h3-mobile: 2; /* 32px */
+  --font-size-h4-mobile: 1; /* 16px */
+  --font-size-h5-mobile: 0.875; /* 14px */
+  --font-size-h6-mobile: 0.75; /* 12px */
+
+  /* Desktop heading sizes: */
+  --font-size-h1-desktop: 5; /* 80px */
+  --font-size-h2-desktop: 3.5; /* 56px */
+  --font-size-h3-desktop: 2.5; /* 40px */
+  --font-size-h4-desktop: 2; /* 32px */
+  --font-size-h5-desktop: 1.5; /* 24px */
+  --font-size-h6-desktop: 1.25; /* 20px */
+
+  /* Other */
+  --font-size-quote-mobile: 1; /* 18px */
+  --font-size-quote-desktop: 1.25; /* 20px */
+  --font-size-label-mobile: 1; /* 16px */
+  --font-size-label-desktop: 1.25; /* 20px */
+}

@@ -1,0 +1,27 @@
+{
+  "name": "kan-hubspot-boilerplate",
+  "private": true,
+  "version": "0.0.1",
+  "type": "module",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite --force",
+    "build": "NODE_ENV=production vite build",
+    "build:dev": "NODE_ENV=development vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "cssnano": "^7.0.6",
+    "gsap": "^3.14.2",
+    "lenis": "^1.3.16",
+    "postcss": "^8.5.3",
+    "postcss-custom-media": "^11.0.5",
+    "postcss-import": "^16.1.0",
+    "postcss-import-ext-glob": "^2.1.1",
+    "postcss-nested": "^7.0.2",
+    "prettier": "^3.5.3",
+    "vite": "^5.0.0"
+  }
+}

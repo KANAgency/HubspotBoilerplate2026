@@ -1,0 +1,15 @@
+{% from 'kan-theme/templates/macros/link/link-group.html' import linkGroup %}
+{% from 'kan-theme/templates/macros/accordion/accordion.html' import accordion %}
+{% from 'kan-theme/templates/macros/header/header.html' import header %}
+
+{% set theme = module.settings.theme %}
+
+<section class="faq-module center-grid py-xl-5" theme="{{ theme }}" itemscope itemtype="https://schema.org/FAQPage">
+	<div class="grid grid--2">
+		{{ header(module.content.heading, module.content.preamble, module.content.links, { headerClass: 'faq-module__header', headingLevel: 'h2' } ) }}
+
+		<div class="faq-module__main">
+			{{ accordion(module.content.questions) }}
+		</div>
+	</div>
+</section>

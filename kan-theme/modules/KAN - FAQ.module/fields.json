@@ -1,0 +1,171 @@
+[ {
+  "id" : "2ef0325e-5052-6b0e-a813-78925cbed094",
+  "name" : "settings",
+  "label" : "Settings",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "1aebb8b3-59ab-fa98-85da-44e751886252",
+    "name" : "theme",
+    "label" : "Theme",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "dark", "Dark" ], [ "light", "Light" ], [ "light secondary", "Light secondary" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "light"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "fullwidth_or_container" : false
+  }
+}, {
+  "id" : "caaef7cd-0e85-13b7-1ff1-8f711b0e7713",
+  "name" : "content",
+  "label" : "Content",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "9f8afcf3-abc6-5d3d-fb8a-a61403d7ad86",
+    "name" : "heading",
+    "label" : "Heading",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Lorem Ipsum FAQ"
+  }, {
+    "id" : "55e41ca7-a44b-1ea2-02e9-32b24a96c1c6",
+    "name" : "preamble",
+    "label" : "Preamble",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : "<p>Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>"
+  }, {
+    "id" : "483da9d0-6d45-8db5-9c51-c6ff321609ef",
+    "name" : "questions",
+    "label" : "Questions",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : null,
+      "max" : null,
+      "sorting_label_field" : null,
+      "default" : 6
+    },
+    "children" : [ {
+      "id" : "a60b02aa-7122-1133-924b-df2178efd157",
+      "name" : "question",
+      "label" : "Question",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Lorem ipsum dolor sit amet, consectetur adipiscing?"
+    }, {
+      "id" : "7c20d4ad-2c4c-a251-3b6b-a32e2d240f1c",
+      "name" : "answer",
+      "label" : "Answer",
+      "required" : false,
+      "locked" : false,
+      "type" : "richtext",
+      "display_width" : null,
+      "default" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere."
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : [ {
+      "question" : "Lorem ipsum dolor sit amet, consectetur adipiscing?",
+      "answer" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere."
+    }, {
+      "question" : "Lorem ipsum dolor sit amet, consectetur adipiscing?",
+      "answer" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere."
+    }, {
+      "question" : "Lorem ipsum dolor sit amet, consectetur adipiscing?",
+      "answer" : "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam in dui mauris. Vivamus hendrerit arcu sed erat molestie vehicula. Sed auctor neque eu tellus rhoncus ut eleifend nibh porttitor. Ut in nulla enim. Phasellus molestie magna non est bibendum non venenatis nisl tempor. Suspendisse dictum feugiat nisl ut dapibus. Mauris iaculis porttitor posuere."
+    } ]
+  }, {
+    "id" : "c9ffce9e-8e9f-c93c-d4b3-c70d7aaae5a7",
+    "name" : "links",
+    "label" : "links",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : null,
+      "max" : null,
+      "sorting_label_field" : null,
+      "default" : 0
+    },
+    "children" : [ {
+      "id" : "f65cc569-9b6a-db7f-931e-68c0ccc6baea",
+      "name" : "link_style",
+      "label" : "Link Style",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "btn", "Button Primary" ], [ "btn btn--secondary", "Button Secondary" ], [ "text-link--icon", "Text link - Arrow icon" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : "btn"
+    }, {
+      "id" : "b05d3342-0089-6a4c-fb56-6cb6c5524516",
+      "name" : "link",
+      "label" : "Link url",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "FILE", "CONTENT", "EMAIL_ADDRESS", "BLOG", "PHONE_NUMBER" ],
+      "show_advanced_rel_options" : true,
+      "type" : "link",
+      "display_width" : null,
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "",
+          "type" : "CONTENT"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }, {
+      "id" : "e006029a-94e2-e1a3-98f6-b30809c62534",
+      "name" : "link_label",
+      "label" : "Link label",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Button ipsum"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : [ ]
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : { }
+} ]

@@ -1,0 +1,14 @@
+/* Z Layer variables */
+:root {
+  --z-below-below: -2;
+  --z-below: -1;
+  --z-default: 1;
+  --z-above: 2;
+  --z-above-above: 3;
+  --z-sticky: 5000;
+  --z-dropdown: 6000;
+  --z-overlay: 7000;
+  --z-cursor: 7500;
+  --z-modal: 8000;
+  --z-frame: 9000;
+}

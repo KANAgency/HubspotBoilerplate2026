@@ -1,0 +1,17 @@
+.site-header {
+}
+
+.site-header__main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header__logo-link {
+  display: inline-block;
+}
+
+.site-header__logotype {
+  width: 207px;
+  height: 40px;
+}

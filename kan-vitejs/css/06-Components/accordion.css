@@ -1,0 +1,128 @@
+.accordion {
+  list-style-type: none;
+  padding-inline-start: 0;
+}
+
+.accordion--secondary {
+  display: grid;
+  gap: 1rem;
+
+  .accordion__heading {
+    transition: border-color 350ms ease-in-out;
+    border-block-end: 1px solid transparent;
+
+    &:has([aria-expanded="true"]) {
+      border-color: rgba(0 0 0 / 0.2);
+    }
+  }
+}
+
+.accordion__item {
+  border-block-end: 1px solid var(--color-border-secondary);
+
+  &[theme="light secondary"] {
+    border-block-end: 0;
+  }
+}
+
+.accordion:not(.accordion--secondary)
+  .accordion__item:first-child
+  .accordion__toggle {
+  padding-block-start: 0;
+}
+
+.accordion__heading {
+  --font-min-size: var(--font-size-h4-mobile);
+  margin-block-end: 0;
+}
+
+.accordion__toggle {
+  padding-inline: 0;
+  appearance: none;
+  border: 0;
+  outline: 0;
+  display: grid;
+  gap: 0.5rem;
+  align-items: center;
+  grid-template-columns: 1fr 2rem;
+  text-align: left;
+  cursor: pointer;
+  width: 100%;
+  background-color: transparent;
+  outline: 0.125rem solid transparent;
+  outline-offset: 0.75rem;
+  transition: outline-color 250ms ease-in-out;
+  -webkit-tap-highlight-color: transparent;
+
+  &:focus-visible {
+    outline-color: var(--color-brand-primary);
+  }
+}
+
+.accordion__label {
+  font-weight: 500;
+}
+.accordion__icons {
+  --_icon-size: 1rem;
+  position: relative;
+  width: var(--_icon-size);
+  height: var(--_icon-size);
+  justify-self: center;
+}
+
+.accordion__icon {
+  position: absolute;
+  width: var(--_icon-size);
+  height: var(--_icon-size);
+  transition:
+    rotate 350ms var(--spring),
+    opacity 250ms ease-in-out;
+
+  .accordion__toggle[aria-expanded="true"] & {
+    rotate: 180deg;
+  }
+}
+
+.accordion__icon--open {
+  opacity: 1;
+
+  .accordion__toggle[aria-expanded="true"] & {
+    opacity: 0;
+  }
+}
+
+.accordion__icon--close {
+  opacity: 0;
+
+  .accordion__toggle[aria-expanded="true"] & {
+    opacity: 1;
+  }
+}
+
+.accordion__panel {
+  display: none;
+  opacity: 0;
+  grid-template-rows: 0fr;
+  transition-property: display, opacity, grid-template-rows;
+  transition-duration: 500ms;
+  transition-timing-function: var(--easeOutCubic);
+  transition-behavior: allow-discrete;
+
+  &.is-active {
+    display: grid;
+    grid-template-rows: 1fr;
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+      grid-template-rows: 0fr;
+    }
+  }
+}
+
+.accordion__panel-inner {
+  overflow: hidden;
+}
+
+.accordion__answer {
+}

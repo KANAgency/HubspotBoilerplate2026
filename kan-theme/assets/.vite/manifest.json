@@ -1,0 +1,16 @@
+{
+  "css/style.css": {
+    "file": "css/style.min.css",
+    "src": "css/style.css",
+    "isEntry": true
+  },
+  "js/app.js": {
+    "file": "js/app.min.js",
+    "name": "app",
+    "src": "js/app.js",
+    "isEntry": true,
+    "css": [
+      "css/style.min.css"
+    ]
+  }
+}

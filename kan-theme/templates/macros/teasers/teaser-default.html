@@ -1,0 +1,41 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+{% import 'kan-theme/templates/macros/media.html' as _media %}
+{% from 'kan-theme/templates/macros/link/link-item.html' import linkItem %}
+{% from 'kan-theme/templates/macros/pill/pill-list.html' import pillList %}
+
+{% set teaserDefaultOptions = {
+    class: '',
+    headingClass: '',
+    tags: [],
+    }
+%}
+
+{% macro teaserDefault(media, heading, preamble, link, options = teaserDefaultOptions) %}
+    <article class="{{ ["teaser-default", options.class]|join(' ') }}">
+        {{ _media.media(media.type, media.image, media.video) }}
+        <div class="teaser-default__content">
+        {% if options.tags|length %}
+                {{ pillList(options.tags) }}
+        {% endif %}
+        {% if heading %}
+            <h3 class="{{ ["teaser-default__heading", options.headingClass]|join(' ') }}">
+                {% if link and link.url.href %}
+                    {{ linkItem(link, heading, {
+                        "style": 'teaser-default__link'
+                    }) }}
+                {% else  %}
+                    {{ heading }}
+                {% endif %}
+            </h3>
+            {% endif %}
+
+            {% if preamble %}
+                <p class="teaser-default__preamble">{{ preamble }}</p>
+            {% endif %}
+            
+        </div>
+    </article>
+{% endmacro %}

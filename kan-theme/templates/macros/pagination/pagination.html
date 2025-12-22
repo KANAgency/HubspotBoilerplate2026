@@ -1,0 +1,46 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+
+{% set template_translations = load_translations('kan-theme/templates/macros/pagination/_locales', html_lang, 'en' ) %}
+
+{% macro pagination() %}
+    {% if contents.total_page_count > 1 %}
+        <nav class="pagination py-m" aria-label="{{ template_translations.description.message }}">
+            <ol class="pagination__list">
+                {% set page_list = [-2, -1, 0, 1, 2] %}
+                {% if contents.total_page_count - current_page_num == 1 %}
+                    {% set offset = -1 %}
+                {% elif contents.total_page_count - current_page_num == 0 %}
+                    {% set offset = -2 %}
+                {% elif current_page_num == 2 %}
+                    {% set offset = 1 %}
+                {% elif current_page_num == 1 %}
+                    {% set offset = 2 %}
+                {% else %}
+                    {% set offset = 0 %}
+                {% endif %}
+                <li>
+                    <a class="pagination__link pagination__link--prev {{ "pagination__link--disabled" if !last_page_num }}" href="{{ blog_page_link(last_page_num) }}" {{ 'aria-disabled="true" tabindex="-1"' if !last_page_num }} aria-label="{{ template_translations.prevPage.message }}">
+                        {{ template_translations.prev.message }}
+                    </a>
+                </li>
+                {% for page in page_list %}
+                    {% set this_page = current_page_num + page + offset %}
+                    {% if this_page > 0 and this_page <= contents.total_page_count %}
+                        <li>
+                            <a class="pagination__link pagination__link--number {{ "pagination__link--active" if this_page == current_page_num }}" {{ 'aria-current="page"' if this_page == current_page_num }} href="{{ blog_page_link(this_page) }}" aria-label="{{ template_translations.page.message }} {{ this_page }}">{{ this_page }}</a>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+                <li>
+                    <a class="pagination__link pagination__link--next {{ "pagination__link--disabled" if !next_page_num }}" href="{{ blog_page_link(current_page_num + 1) }}" aria-label="{{ template_translations.nextPage.message }}">
+                        {{ template_translations.next.message }}
+                    </a>
+                </li>
+            </ol>
+        </nav>
+    {% endif %}
+
+{% endmacro %}

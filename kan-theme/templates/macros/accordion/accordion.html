@@ -1,0 +1,36 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+{% import 'kan-theme/templates/macros/actions.html' as _utils %}
+{% from 'kan-theme/templates/macros/icon.html' import icon %}
+
+{% macro accordion(questions, headingClass = '') %}
+  {% if questions|length %}
+		<ul class="accordion" data-name="accordion">
+			{% for item in questions %}
+				{% set _uuid = _utils.uuid() %}
+				<li class="accordion__item">
+					<h3 class="accordion__heading font-size--h6 {{ headingClass }}">
+						<button id="question-{{ _uuid }}" class="accordion__toggle my-l" data-accordion-trigger aria-controls="answer-{{ _uuid }}" aria-expanded="false" aria-label="Toggle question">
+							<span class="accordion__label">
+								{{ item.question }}
+							</span>
+							<div class="accordion__icons">
+								{{ icon('iconPlus', {'class': 'accordion__icon accordion__icon--open'}) }}
+								{{ icon('iconMinus', {'class': 'accordion__icon accordion__icon--close'}) }}
+							</div>
+						</button>
+					</h3>
+					<div class="accordion__panel" id="answer-{{ _uuid }}" role="region" aria-labelledby="question-{{ _uuid }}" >
+						<div class="accordion__panel-inner">
+							<div class="accordion__answer pb-xl font-size--small inherit-font-size--small">
+								{{ item.answer }}
+							</div>
+						</div>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+	{% endif %}
+{% endmacro %}

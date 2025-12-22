@@ -1,0 +1,65 @@
+a,
+.text-link {
+  color: inherit;
+  line-height: inherit;
+  font-family: inherit;
+  cursor: pointer;
+  text-decoration: underline;
+  text-decoration-color: var(--color-border-primary);
+  text-underline-offset: 0.35em;
+  transition:
+    text-decoration-color 350ms ease-in-out,
+    color 250ms ease;
+
+  /* States */
+  &:hover {
+    text-decoration-color: var(--color-ui-dark-40);
+  }
+
+  &:active {
+    text-decoration-color: var(--color-ui-dark-40);
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: 0;
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-ui-dark-40);
+    outline-offset: 0.125em;
+  }
+}
+
+/* Variants */
+.text-link--discrete:not(:hover) {
+  text-decoration-color: transparent;
+}
+
+.text-link--discrete {
+  text-decoration: none;
+
+  background-image: linear-gradient(var(--color-text-primary));
+  background-size: 0% 1px;
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  transition:
+    background-size 400ms cubic-bezier(0.4, 0.52, 0.28, 0.93),
+    background-position 400ms cubic-bezier(0.4, 0.52, 0.28, 0.93),
+    color 250ms ease;
+
+  &:hover {
+    background-size: 100% 1px;
+    background-position: 0% 100%;
+  }
+}
+
+.text-link--icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  .icon {
+    width: 1rem;
+    height: 1rem;
+  }
+}

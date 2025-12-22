@@ -1,0 +1,45 @@
+{% set unique_id = "quote-calculator" %}
+
+<div class="quote-calculator center-grid py-xl-5" id="{{ unique_id }}" theme="light">
+  <div class="quote-calculator__container">
+    {% if module.heading %}
+      <h2 class="quote-calculator__heading">{{ module.heading }}</h2>
+    {% endif %}
+
+    <div class="quote-calculator__products">
+      {% for product in module.products %}
+        <div class="product-item" data-product-index="{{ loop.index0 }}" data-price="{{ product.product_price }}">
+          <div class="product-item__info">
+            <h3 class="product-item__name font-size--h4">{{ product.product_name }}</h3>
+            {% if module.show_descriptions and product.product_description %}
+              <p class="product-item__description">{{ product.product_description }}</p>
+            {% endif %}
+          </div>
+
+          <div class="product-item__controls">
+            <div class="product-item__price">
+              <span class="price-label">Unit Price:</span>
+              <span class="price-value">{{ product.product_price|format_number(format='#,##0.00') }} {{ module.currency_symbol }}</span>
+            </div>
+
+            <div class="product-item__quantity">
+              <button type="button" class="qty-btn qty-btn--minus" aria-label="Decrease quantity">−</button>
+              <input type="number" class="qty-input" value="0" min="0" max="999" aria-label="Quantity">
+              <button type="button" class="qty-btn qty-btn--plus" aria-label="Increase quantity">+</button>
+            </div>
+
+            <div class="product-item__subtotal">
+              <span class="subtotal-label">Subtotal:</span>
+              <span class="subtotal-value">0.00 {{ module.currency_symbol }}</span>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="quote-calculator__total">
+      <div class="total-label">Total Quote:</div>
+      <div class="total-value"><span class="total-amount">0.00</span> {{ module.currency_symbol }}</div>
+    </div>
+  </div>
+</div>

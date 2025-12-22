@@ -1,0 +1,12 @@
+.top-bar {
+}
+
+.top-bar__list {
+  list-style-type: none;
+  margin-inline-start: auto;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+}

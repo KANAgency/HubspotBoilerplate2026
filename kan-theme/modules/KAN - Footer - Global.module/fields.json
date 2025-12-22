@@ -1,0 +1,145 @@
+[ {
+  "id" : "a00d58c3-a5fa-88a3-fc60-f6f5ab51ed6d",
+  "name" : "menu",
+  "label" : "Menu",
+  "required" : false,
+  "locked" : true,
+  "type" : "menu",
+  "display_width" : null,
+  "default" : ""
+}, {
+  "id" : "b00d58c3-a5fa-88a3-fc60-f6f5ab51ed6d",
+  "name" : "secondary_menu",
+  "label" : "Secondary menu",
+  "required" : false,
+  "locked" : true,
+  "type" : "menu",
+  "display_width" : null,
+  "default" : ""
+}, {
+  "id" : "address_label",
+  "name" : "address_label",
+  "label" : "Address Label",
+  "required" : false,
+  "locked" : true,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : ""
+}, {
+  "id" : "address",
+  "name" : "address",
+  "label" : "Address",
+  "required" : false,
+  "locked" : true,
+  "allow_new_line" : true,
+  "type" : "text",
+  "display_width" : null,
+  "default" : ""
+}, {
+  "id" : "social_links_label",
+  "name" : "social_links_label",
+  "label" : "Social Links Label",
+  "required" : false,
+  "locked" : true,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null,
+  "default" : ""
+}, {
+  "id" : "2ea9072b-dd7d-048d-eb14-1c882b19b724",
+  "name" : "social_links",
+  "label" : "Social Links",
+  "required" : false,
+  "locked" : true,
+  "occurrence" : {
+    "min" : null,
+    "max" : null,
+    "sorting_label_field" : "e006029a-94e2-e1a3-98f6-b30809c62534",
+    "default" : 0
+  },
+  "children" : [ {
+    "id" : "220ead28-24cc-94fb-e5b0-4834eb98d649",
+    "name" : "link_label",
+    "label" : "Link label",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "3188ac16-d09d-491e-a2de-d0743d8ec7b2",
+    "name" : "link",
+    "label" : "Link url",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "EMAIL_ADDRESS", "PHONE_NUMBER" ],
+    "show_advanced_rel_options" : true,
+    "type" : "link",
+    "display_width" : null,
+    "default" : {
+      "url" : {
+        "content_id" : null,
+        "href" : "",
+        "type" : "EXTERNAL"
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ ]
+}, {
+  "id" : "1ea9072b-dd7d-048d-eb14-1c882b19b724",
+  "name" : "contact_links",
+  "label" : "Contact links",
+  "required" : false,
+  "locked" : true,
+  "occurrence" : {
+    "min" : null,
+    "max" : null,
+    "sorting_label_field" : "e006029a-94e2-e1a3-98f6-b30809c62534",
+    "default" : 0
+  },
+  "children" : [ {
+    "id" : "120ead28-24cc-94fb-e5b0-4834eb98d649",
+    "name" : "link_label",
+    "label" : "Link label",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "2188ac16-d09d-491e-a2de-d0743d8ec7b2",
+    "name" : "link",
+    "label" : "Link url",
+    "required" : false,
+    "locked" : false,
+    "supported_types" : [ "EXTERNAL", "CONTENT", "EMAIL_ADDRESS", "PHONE_NUMBER" ],
+    "show_advanced_rel_options" : true,
+    "type" : "link",
+    "display_width" : null,
+    "default" : {
+      "url" : {
+        "content_id" : null,
+        "href" : "",
+        "type" : "EMAIL_ADDRESS"
+      },
+      "open_in_new_tab" : false,
+      "no_follow" : false
+    }
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : [ ]
+} ]

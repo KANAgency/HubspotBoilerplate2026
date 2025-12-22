@@ -1,0 +1,64 @@
+/** 
+ * Fluid sizes, for spacing and typography
+ * Ref: https://codepen.io/ixkaito/pen/bGoPaEQ & https://dev.to/ixkaito/fluid-typography-using-css-custom-properties-css-variables-3lcn
+ * Author: Kite - https://dev.to/ixkaito
+ * Edited: Oscar Nilsson
+ * Description: I've made some changes to the original code to make it work with REM instead of pixels. i've also added two different sets for spacing and typography.
+ *
+*/
+
+/**
+ * Spacing
+ *  
+ * Available vars:
+ * @var --spacing-viewport-from: <number> - Number in pixels without the unit. Required if `--spacing-size` is not exist.
+ * @var --spacing-viewport-to: <number> - Number in pixels without the unit. Required if `--spacing-size` is not exist.
+ * @var --spacing-size-from: <number> - Number in pixels without the unit. Required if `--spacing-size` and `--spacing-min-size` is not exist.
+ * @var --spacing-size-to: <number> - Number in pixels without the unit. Required if `--spacing-size` and `--spacing-max-size` is not exist.
+ * @var --spacing-max-size: <number> - Number in pixels without the unit. Optional.
+ * @var --spacing-min-size: <number> - Number in pixels without the unit. Optional.
+ * @var --spacing-viewport-unit-converter: 1vw | 1vh | 1vmin | 1vmax - Optional. Default: 1vw.
+ * @var --spacing-size: <length> | <percentage> | <absolute-size> | <relative-size> | Global values - Optional.
+ * @var --spacing-fluid-spacing: clamped spacing value - Value to use, eg: margin: var(--spacing-fluid-spacing);.
+*/
+
+/* Default viewport settings  */
+*,
+::before,
+::after {
+  --spacing-viewport-from: 20; /* 320 */
+  --spacing-viewport-to: 112.5; /* 1800 */
+}
+
+*,
+::before,
+::after {
+  --spacing-viewport-unit-converter: 1vw;
+  --spacing-fz-from: var(--spacing-size-from, var(--spacing-min-size));
+  --spacing-fz-to: var(--spacing-size-to, var(--spacing-max-size));
+  --spacing-fz-slope: (var(--spacing-fz-to) - var(--spacing-fz-from)) /
+    (var(--spacing-viewport-to) - var(--spacing-viewport-from)) * 100;
+  --spacing-fz-intercept: (
+      var(--spacing-viewport-to) * var(--spacing-fz-from) -
+        var(--spacing-viewport-from) * var(--spacing-fz-to)
+    ) /
+    (var(--spacing-viewport-to) - var(--spacing-viewport-from));
+  --spacing-size: calc(
+    var(--spacing-fz-slope) * var(--spacing-viewport-unit-converter) +
+      var(--spacing-fz-intercept) * 1rem
+  );
+
+  --spacing-min-fz-px: calc(var(--spacing-min-size) * 1rem);
+  --spacing-max-fz-px: calc(var(--spacing-max-size) * 1rem);
+  --spacing-clamp: clamp(
+    var(--spacing-min-fz-px),
+    var(--spacing-size),
+    var(--spacing-max-fz-px)
+  );
+  --spacing-max: var(--spacing-has-max, var(--spacing-min));
+  --spacing-min: var(--spacing-has-min, var(--spacing-size));
+  --spacing-has-max: min(var(--spacing-max-fz-px), var(--spacing-size));
+  --spacing-has-min: max(var(--spacing-min-fz-px), var(--spacing-size));
+
+  --fluid-spacing: var(--spacing-clamp, var(--spacing-max));
+}

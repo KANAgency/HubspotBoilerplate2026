@@ -1,0 +1,72 @@
+/* 
+* Hubspot Forms 
+* ref: https://developers.hubspot.com/docs/cms/start-building/features/forms/forms
+*
+**/
+
+.hubspot-form {
+  --hsf-heading__font-family: var(--fontFamily-heading);
+  --hsf-global__font-family: var(--fontFamily-body);
+  --hsf-field-label__font-family: var(--fontFamily-heading);
+  --hsf-global__font-size: 18px;
+  --hsf-global__color: var(--color-text-primary);
+  --hsf-background__background-color: transparent;
+  --hsf-background__padding: 0;
+
+  /* Input fields */
+  --hsf-field-input__border-color: transparent;
+  --hsf-field-input__background-color: var(--color-white);
+  --hsf-field-input__padding: 1rem 1.25rem;
+  --hsf-field-input__font-size: 1rem;
+  --hsf-erroralert__color: var(--color-text-error);
+
+  input:focus,
+  textarea:focus,
+  select:focus {
+    --hsf-field-input__border-color: var(--color-brand-sea);
+
+    box-shadow: 0 0 0 1px var(--color-brand-sea) !important;
+  }
+
+  /* Progress bar */
+  --hsf-progressbar-trackLine__background-color: var(--color-ui-sand-darker);
+  --hsf-progressbar-progressLine__background-color: var(--color-brand-sea);
+
+  /* Button */
+  --hsf-button__font-weight: var(--fontWeight-body);
+  --hsf-button__padding: var(--btn-default-p-block-desktop)
+    var(--btn-default-p-inline-desktop);
+
+  --hsf-button--hover__background-color: var(--btn-bg-hover);
+  --hsf-button--hover__border-color: var(--btn-bg-hover);
+  button {
+    transition: opacity ease-in-out 0.3s !important;
+
+    &:hover,
+    &:focus {
+      transform: none !important;
+      opacity: 0.7;
+    }
+  }
+}
+
+.form-module {
+  .header__heading {
+    @media (--until-desktop) {
+      --font-min-size: 2;
+    }
+  }
+}
+
+.form-module__container {
+  @media (--until-desktop) {
+    padding-inline: 1.5rem;
+    padding-block: 1.5rem;
+  }
+}
+
+.form-module____grid {
+  @media (--until-desktop) {
+    --grid-max-col-count: 1;
+  }
+}

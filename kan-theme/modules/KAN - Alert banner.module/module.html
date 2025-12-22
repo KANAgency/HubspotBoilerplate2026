@@ -1,0 +1,18 @@
+{% from "kan-theme/templates/macros/alerts/alert-banner.html" import alertBanner %} 
+
+	{% set enabled = module.enabled %}
+	{% set label = module.text_label %}
+	{% set message = module.message %} 
+	{% set alertKey = 'alertBanner_' ~ module.id %}
+	{% set link_field = module.link_field %}
+	{% set link_label = module.link_label %}	
+
+	{{ alertBanner(
+		enabled,
+		label,
+		message,
+		alertKey,
+		link_field,
+		link_label
+	) 
+}}

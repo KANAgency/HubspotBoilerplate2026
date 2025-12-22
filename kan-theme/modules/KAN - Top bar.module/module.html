@@ -1,0 +1,27 @@
+{% from 'kan-theme/templates/macros/link/link-item.html' import linkItem %}
+{% from 'kan-theme/templates/macros/language-picker/language-picker.html' import languagePicker %}
+
+{% set top_menu = menu(module.menu) %}
+{% set hasLanguagePicker = module.display_language_picker %}
+
+{% if hasLanguagePicker or top_menu.children|length %}
+	<div class="top-bar center-grid py-xs">
+		<ul class="top-bar__list">
+			{% for item in top_menu.children %}
+					{% set link = {
+						"url": {
+							"href": item.url,
+						},
+						"open_in_new_tab": item.linkTarget is equalto "_blank",
+					}
+					%}
+				<li class="top-bar__item">
+					{{ linkItem(link, item.label, {'style': 'text-link text-link--discrete'}) }}
+				</li>
+			{% endfor %}
+			<li class="top-bar__item">
+				{{ languagePicker('langPickerButton', 'langPickerPanel') }}
+			</li>
+		</ul>			
+	</div>
+{% endif %}

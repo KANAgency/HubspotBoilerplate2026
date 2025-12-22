@@ -1,0 +1,49 @@
+[ {
+  "id" : "caaef7cd-0e85-13b7-1ff1-8f711b0e7713",
+  "name" : "content",
+  "label" : "Content",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "9f8afcf3-abc6-5d3d-fb8a-a61403d7ad86",
+    "name" : "heading",
+    "label" : "Heading",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  }, {
+    "id" : "55e41ca7-a44b-1ea2-02e9-32b24a96c1c6",
+    "name" : "preamble",
+    "label" : "Preamble",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : ""
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "heading" : "",
+    "preamble" : ""
+  }
+}, {
+  "id" : "b3a19a6b-8feb-22a4-375a-06c963d6e2b4",
+  "name" : "form_field",
+  "label" : "Form",
+  "required" : false,
+  "locked" : false,
+  "embed_versions" : [ "v4" ],
+  "type" : "form",
+  "display_width" : null,
+  "default" : {
+    "response_type" : "inline",
+    "message" : "Thanks for submitting the form."
+  }
+} ]

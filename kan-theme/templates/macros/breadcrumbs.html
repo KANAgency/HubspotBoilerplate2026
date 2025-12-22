@@ -1,0 +1,79 @@
+<!--
+    templateType: page
+    isAvailableForNewContent: false
+-->
+
+{% set breadcrumbsOptions = {
+    show: true,
+    theme: 'light'
+}%}
+
+{% macro breadcrumbs(options = breadcrumbsOptions) %}
+    {% set show = options.show|default(breadcrumbsOptions.show) %}
+    {% set theme = options.theme|default(breadcrumbsOptions.theme) %}
+
+    {% if show %}
+        {% set pageUrl = '/' + html_lang %}
+        {% set parts = request.path|split('/') %}
+        {% set items = [{name: html_lang == 'sv' ? 'Hem' : 'Home', url: pageUrl }] %}
+
+        {% for item in parts %}
+            {% if item != html_lang %}
+                {% if not loop.first %}
+                    {% set pageUrl = pageUrl + '/' + item %}    
+                    {% set crumb = {
+                        name: item|replace('-',' ')|capitalize,
+                        url: pageUrl
+                    }%}
+                        
+                    {% do items.append(crumb) %}
+                {% endif %}
+            {% endif %}
+        {% endfor %}
+
+        
+        {% if items|length %}
+            <nav class="breadcrumbs center-grid pt-xl" aria-label="Breadcrumb" role="navigation" theme="{{ theme }}">
+                <ol class="breadcrumbs__list">
+
+                {% for item in items %}
+                    {% if loop.first %}
+                        <li class="breadcrumbs__list-item">
+                            <a class="text-link text-link--discrete" href="{{ item.url }}">{{ item.name }}</a>
+                        </li>
+                    {% elif loop.last %}
+                        <!-- Current page -->
+                        <li class="breadcrumbs__list-item">
+                            <a class="text-link text-link--discrete" href="{{ item.url }}" aria-current="page">{{ content.page_title ? content.page_title : item.name }}</a>
+                        </li>
+                    {% else %}
+                        <li class="breadcrumbs__list-item">
+                            <a class="text-link text-link--discrete" href="{{ item.url }}">{{ item.name }}</a>
+                        </li>          
+                    {% endif %}
+                {% endfor %}
+                </ol>
+            </nav>
+
+            {% require_js %}
+                <script type="application/ld+json">
+                {
+                "@context": "https://schema.org",
+                "@type": "BreadcrumbList",
+                "itemListElement": [
+                    {% for crumb in items %}
+                    {
+                        "@type": "ListItem",
+                        "position": {{ loop.index }},
+                        "name": "{{ crumb.name }}",
+                        "item": "{{ request.scheme }}://{{ request.headers.host }}{{ crumb.url }}"
+                    }{% if not loop.last %},{% endif %}
+                    {% endfor %}
+                ]
+                }
+                </script>
+            {% end_require_js %}
+
+        {% endif %}
+    {% endif %}
+{% endmacro %}

@@ -1,0 +1,12 @@
+[
+    {
+        "id": "a00d58c3-b6fa-88a3-fc60-f6f5ab51ed6d",
+        "name": "menu",
+        "label": "Menu",
+        "required": false,
+        "locked": false,
+        "type": "menu",
+        "display_width": null,
+        "default": ""
+    }
+]

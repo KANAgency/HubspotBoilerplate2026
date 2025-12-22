@@ -1,0 +1,22 @@
+{
+  "openLabel": {
+    "message": "Menu",
+    "description": null,
+    "placeholders": null
+  },
+  "closeLabel": {
+    "message": "Close",
+    "description": null,
+    "placeholders": null
+  },
+  "ariaOpenLabel": {
+    "message": "Open modal",
+    "description": null,
+    "placeholders": null
+  },
+  "ariaCloseLabel": {
+    "message": "Close modal",
+    "description": null,
+    "placeholders": null
+  }
+}

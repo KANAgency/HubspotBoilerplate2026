@@ -1,0 +1,416 @@
+[ {
+  "id" : "2ef0325e-5052-6b0e-a813-78925cbed094",
+  "name" : "settings",
+  "label" : "Settings",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "1aebb8b3-59ab-fa98-85da-44e751886252",
+    "name" : "theme",
+    "label" : "Theme",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "dark", "Dark" ], [ "light", "Light" ], [ "light secondary", "Light secondary" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "light"
+  }, {
+    "id" : "2eacc8b3-59ab-fa98-85da-44e751886252",
+    "name" : "vertical_spacing_top",
+    "label" : "Vertical Spacing Top",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "pt-xl-5", "Default" ], [ "p-top-none", "None" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "pt-xl-5"
+  }, {
+    "id" : "3eacc8b3-59ab-fa98-85da-44e751886252",
+    "name" : "vertical_spacing_bottom",
+    "label" : "Vertical Spacing Bottom",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "pb-xl-5", "Default" ], [ "p-bot-none", "None" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "pb-xl-5"
+  }, {
+    "id" : "settings.has_featured_post",
+    "name" : "has_featured_post",
+    "label" : "Enable Featured Post",
+    "inline_help_text" : "Shows Featured Post when toggled on",
+    "required" : false,
+    "locked" : false,
+    "display" : "toggle",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : false
+  }, {
+    "id" : "1bebb8b3-59ab-fa98-85da-44e751886252",
+    "name" : "carousel_type",
+    "label" : "Show Carousel",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "never", "Never" ], [ "mobile", "Mobile" ], [ "always", "Always" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "mobile"
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "theme" : "light",
+    "has_featured_post" : false,
+    "carousel_type" : "mobile"
+  }
+}, {
+  "id" : "694fb1d0-ede9-6e2e-e02b-de442885ce5a",
+  "name" : "header",
+  "label" : "Header",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "2becc8b3-59ab-fa98-85da-44e751886252",
+    "name" : "headingLevel",
+    "label" : "Heading Level",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "h1", "H1" ], [ "h2", "H2" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "h2"
+  }, {
+    "id" : "98c346da-8add-6415-17b7-80ac8ace4a22",
+    "name" : "heading",
+    "label" : "Heading",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null
+  }, {
+    "id" : "653884c6-e655-2b9d-c9b5-52a9493ef89b",
+    "name" : "preamble",
+    "label" : "Preamble",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : true,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : { }
+}, {
+  "id" : "124d0657-92f6-0b36-8268-a0ad0b8d8f47",
+  "name" : "post_section",
+  "label" : "Posts",
+  "required" : false,
+  "locked" : false,
+  "display" : "accordion",
+  "children" : [ {
+    "id" : "0c25811e-f1d6-71bc-2fa1-723245712d6f",
+    "name" : "post_type",
+    "label" : "Post type",
+    "required" : true,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "blog", "Blog" ], [ "page", "Page" ], [ "manual", "Manual" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "blog"
+  }, {
+    "id" : "bc1072a3-b922-c96a-e028-5977a6500a97",
+    "name" : "pages",
+    "label" : "Posts from pages",
+    "inline_help_text" : "Select pages to be listed",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : null,
+      "max" : null,
+      "sorting_label_field" : null,
+      "default" : null
+    },
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "post_section.post_type",
+      "controlling_value_regex" : "page",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "type" : "page",
+    "display_width" : null
+  }, {
+    "id" : "post_section.blog_id",
+    "name" : "blog_id",
+    "label" : "Posts from blog",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "post_section.post_type",
+      "controlling_value_regex" : "blog",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "type" : "blog",
+    "display_width" : null,
+    "default" : "default"
+  }, {
+    "id" : "c3395cd3-8e60-7e47-2f1b-b7ccf4d669c9",
+    "name" : "blog_tags",
+    "label" : "Blog Tags",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : null,
+      "max" : null,
+      "sorting_label_field" : null,
+      "default" : 2
+    },
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "post_section.post_type",
+      "controlling_value_regex" : "blog",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "tag_value" : "SLUG",
+    "type" : "tag",
+    "display_width" : null
+  }, {
+    "id" : "c81fe237-8474-1413-5f28-ef5407b4cc83",
+    "name" : "posts",
+    "label" : "Posts",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : null,
+      "max" : null,
+      "sorting_label_field" : "1830984c-d7ea-53b1-6530-405097025086",
+      "default" : null
+    },
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "post_section.post_type",
+      "controlling_value_regex" : "manual",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "children" : [ {
+      "id" : "f8b736d7-ca6d-c4a2-77ec-bd0d9fd5e122",
+      "name" : "image",
+      "label" : "Image",
+      "required" : false,
+      "locked" : false,
+      "responsive" : true,
+      "resizable" : true,
+      "show_loading" : false,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "src" : "",
+        "alt" : null,
+        "size_type" : null,
+        "width" : null,
+        "height" : null,
+        "max_width" : null,
+        "max_height" : null,
+        "loading" : "disabled"
+      }
+    }, {
+      "id" : "1830984c-d7ea-53b1-6530-405097025086",
+      "name" : "heading",
+      "label" : "Heading",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null
+    }, {
+      "id" : "0ef69c35-b25c-e32c-4b2f-957701c896a6",
+      "name" : "preamble",
+      "label" : "Preamble",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null
+    }, {
+      "id" : "9f19d968-e4d0-7e0d-7cc6-94957fb05788",
+      "name" : "link",
+      "label" : "Link",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "CONTENT", "BLOG" ],
+      "show_advanced_rel_options" : false,
+      "type" : "link",
+      "display_width" : null,
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "type" : "CONTENT",
+          "href" : ""
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }, {
+      "id" : "d7f9b8e3-a210-481d-cf4e-124df3659a33",
+      "name" : "tags",
+      "label" : "Tags",
+      "required" : false,
+      "locked" : false,
+      "occurrence" : {
+        "min" : null,
+        "max" : null,
+        "sorting_label_field" : null,
+        "default" : null
+      },
+      "children" : [ {
+        "id" : "5367ecec-47bf-32d0-eec3-a147e32d7c35",
+        "name" : "tag_label",
+        "label" : "Tag label",
+        "required" : true,
+        "locked" : false,
+        "allow_new_line" : false,
+        "type" : "text",
+        "display_width" : null,
+        "default" : "Tag label"
+      }, {
+        "id" : "1e835b13-d0c7-bcd1-261d-c52a8178ef5c",
+        "name" : "icon",
+        "label" : "icon",
+        "required" : false,
+        "locked" : false,
+        "display" : "select",
+        "choices" : [ [ "iconPerson", "User" ], [ "iconArrowUp", "Arrow up" ] ],
+        "multiple" : false,
+        "reordering_enabled" : true,
+        "preset" : null,
+        "type" : "choice",
+        "display_width" : null,
+        "default" : ""
+      } ],
+      "tab" : "CONTENT",
+      "expanded" : false,
+      "group_occurrence_meta" : null,
+      "type" : "group",
+      "display_width" : null,
+      "default" : [ ]
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : [ ]
+  }, {
+    "id" : "73257c16-1cab-5ca3-1d02-ef48c46d4ad2",
+    "name" : "number_of_posts",
+    "label" : "Number of posts",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "post_section.post_type",
+      "controlling_value_regex" : "blog",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "display" : "text",
+    "step" : 1,
+    "type" : "number",
+    "display_width" : null,
+    "default" : 12
+  }, {
+    "id" : "post_section.sort_order",
+    "name" : "sort_order",
+    "label" : "Sort Order",
+    "required" : true,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "name", "Name" ], [ "created", "Created" ], [ "updated", "Updated" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "post_section.post_type",
+      "controlling_value_regex" : "blog",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "name"
+  }, {
+    "id" : "post_section.has_tags",
+    "name" : "has_tags",
+    "label" : "Enable tags",
+    "help_text" : "",
+    "inline_help_text" : "Shows tags on posts when toggled on",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "post_section.post_type",
+      "controlling_value_regex" : "blog",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "display" : "toggle",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : false
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "post_type" : "blog",
+    "blog_id" : "default",
+    "posts" : [ ],
+    "number_of_posts" : 12,
+    "has_tags" : false
+  }
+} ]

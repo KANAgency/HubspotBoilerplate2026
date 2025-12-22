@@ -1,0 +1,62 @@
+.hidden {
+  display: none;
+}
+.hidden-mobile-only {
+  @media screen and (--mobile-only) {
+    display: none;
+  }
+}
+
+.hidden-tablet-only {
+  @media screen and (--tablet-only) {
+    display: none;
+  }
+}
+
+.hidden-desktop-only {
+  @media screen and (--desktop-only) {
+    display: none;
+  }
+}
+
+.hidden-until-desktop {
+  @media screen and (--until-desktop) {
+    display: none;
+  }
+}
+
+.hidden-sm {
+  @media screen and (--viewport-sm) {
+    display: none;
+  }
+}
+
+.hidden-m {
+  @media screen and (--viewport-m) {
+    display: none;
+  }
+}
+
+.hidden-md {
+  @media screen and (--viewport-md) {
+    display: none;
+  }
+}
+
+.hidden-l {
+  @media screen and (--viewport-l) {
+    display: none;
+  }
+}
+
+.hidden-lg {
+  @media screen and (--viewport-lg) {
+    display: none;
+  }
+}
+
+.hidden-xl {
+  @media screen and (--viewport-xl) {
+    display: none;
+  }
+}

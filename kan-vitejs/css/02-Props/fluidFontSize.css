@@ -1,0 +1,64 @@
+/** 
+ * Fluid sizes, for spacing and typography
+ * Ref: https://codepen.io/ixkaito/pen/bGoPaEQ & https://dev.to/ixkaito/fluid-typography-using-css-custom-properties-css-variables-3lcn
+ * Author: Kite - https://dev.to/ixkaito
+ * Edited: Oscar Nilsson
+ * Description: I've made some changes to the original code to make it work with REM instead of pixels. i've also added two different sets for spacing and typography.
+ *
+*/
+
+/**
+ * TYPOGRAPHY
+ *  
+ * Available vars:
+ * @var --font-viewport-from: <number> - Number in pixels without the unit. Required if `--font-size` is not exist.
+ * @var --font-viewport-to: <number> - Number in pixels without the unit. Required if `--font-size` is not exist.
+ * @var --font-size-from: <number> - Number in pixels without the unit. Required if `--font-size` and `--font-min-size` is not exist.
+ * @var --font-size-to: <number> - Number in pixels without the unit. Required if `--font-size` and `--font-max-size` is not exist.
+ * @var --font-max-size: <number> - Number in pixels without the unit. Optional.
+ * @var --font-min-size: <number> - Number in pixels without the unit. Optional.
+ * @var --font-viewport-unit-converter: 1vw | 1vh | 1vmin | 1vmax - Optional. Default: 1vw.
+ * @var --font-size: <length> | <percentage> | <absolute-size> | <relative-size> | Global values - Optional.
+ * @var --font-fluid-font-size: clamped font-size value - Value to use, eg: font-size: var(--font-fluid-font-size);.
+*/
+
+/* Default viewport settings  */
+*,
+::before,
+::after {
+  --font-viewport-from: 20; /* 320 */
+  --font-viewport-to: 112.5; /* 1800 */
+}
+
+*,
+::before,
+::after {
+  --font-viewport-unit-converter: 1vw;
+  --font-fz-from: var(--font-size-from, var(--font-min-size));
+  --font-fz-to: var(--font-size-to, var(--font-max-size));
+  --font-fz-slope: (var(--font-fz-to) - var(--font-fz-from)) /
+    (var(--font-viewport-to) - var(--font-viewport-from)) * 100;
+  --font-fz-intercept: (
+      var(--font-viewport-to) * var(--font-fz-from) -
+        var(--font-viewport-from) * var(--font-fz-to)
+    ) /
+    (var(--font-viewport-to) - var(--font-viewport-from));
+  --font-size: calc(
+    var(--font-fz-slope) * var(--font-viewport-unit-converter) +
+      var(--font-fz-intercept) * 1rem
+  );
+
+  --font-min-fz-px: calc(var(--font-min-size) * 1rem);
+  --font-max-fz-px: calc(var(--font-max-size) * 1rem);
+  --font-clamp: clamp(
+    var(--font-min-fz-px),
+    var(--font-size),
+    var(--font-max-fz-px)
+  );
+  --font-max: var(--font-has-max, var(--font-min));
+  --font-min: var(--font-has-min, var(--font-size));
+  --font-has-max: min(var(--font-max-fz-px), var(--font-size));
+  --font-has-min: max(var(--font-min-fz-px), var(--font-size));
+
+  --fluid-font-size: var(--font-clamp, var(--font-max));
+}

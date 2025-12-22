@@ -1,0 +1,23 @@
+/**
+* Custom scrollbar styling
+* Ref: https://css-tricks.com/the-current-state-of-styling-scrollbars-in-css/
+**/
+
+:root {
+  /* Foreground, Background */
+  scrollbar-color: var(--color-text-secondary) var(--color-surface-secondary);
+
+  ::-webkit-scrollbar {
+    width: 10px; /* Mostly for vertical scrollbars */
+    height: 10px; /* Mostly for horizontal scrollbars */
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-text-secondary);
+    border-radius: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: var(--color-surface-secondary);
+  }
+}

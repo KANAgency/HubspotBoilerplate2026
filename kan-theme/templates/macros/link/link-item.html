@@ -1,0 +1,42 @@
+<!--
+    templateType: page
+    isAvailableForNewContent: false
+-->
+
+{% set linkItemOptions = {
+    style: '',
+    hasCaller: false
+    }
+%}
+
+{% macro linkItem(link, label, options = linkItemOptions) %}
+    {% set href = link.url.href %}
+
+    {% if href|length %}
+        {% if link.url.type is equalto "EMAIL_ADDRESS" %}
+            {% set href = "mailto:" + href %}
+        {% elif link.url.type is equalto "PHONE_NUMBER" %}
+            {% set href = "tel:" + href %}
+        {% endif %}
+        <a
+            class="{{ options.style|escape }}"
+        {% if link.url.type is equalto "CALL_TO_ACTION"  %}
+            href="{{ href }}"
+        {% else %}
+            href="{{ href|escape_url }}"
+        {% endif %}
+        {% if link.open_in_new_tab %}
+            target="_blank"
+        {% endif %}
+        {% if link.rel %}
+            rel="{{ link.rel|escape_attr }}"
+        {% endif %}
+        >
+            {% if options.hasCaller %}    
+                {{ caller() }}
+            {% else %}
+                {{ label|escape }}
+            {% endif %}
+        </a>
+    {% endif %}
+{% endmacro %}

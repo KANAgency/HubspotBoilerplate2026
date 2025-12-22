@@ -1,0 +1,17 @@
+.xs-gap-none {
+  @media (--mobile-only) {
+    gap: 0;
+  }
+}
+
+.gap-none {
+  gap: 0;
+}
+
+.media-contain {
+  object-fit: contain;
+}
+
+.media-cover {
+  object-fit: cover;
+}

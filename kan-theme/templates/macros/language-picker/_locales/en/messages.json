@@ -1,0 +1,22 @@
+{
+  "language": {
+    "message": "Language",
+    "description": null,
+    "placeholders": null
+  },
+  "language_label": {
+    "message": "English",
+    "description": null,
+    "placeholders": null
+  },
+  "toggle_label": {
+    "message": "Toggle language menu",
+    "description": null,
+    "placeholders": null
+  },
+  "switch_to": {
+    "message": "Switch to",
+    "description": null,
+    "placeholders": null
+  }
+}

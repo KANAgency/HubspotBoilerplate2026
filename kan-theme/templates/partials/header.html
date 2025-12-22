@@ -1,0 +1,30 @@
+<!--
+  templateType: global_partial
+  label: Website header
+-->
+
+{# Translations #}
+{% set toHomePage = html_lang == 'sv' ? 'Gå till startsidan' : 'Go to homepage' %}
+
+{% module "module_17660645487902" path="/kan-theme/modules/KAN - Alert banner", label="KAN - Alert banner" %}
+  
+<header class="site-header" theme="dark">
+
+  {% module "module_17658818417081" path="/kan-theme/modules/KAN - Top bar", label="Top bar" no_wrapper=True %}
+
+	<div class="center-grid py-xs">
+		<div class="site-header__main">
+		
+			<a class="site-header__logo-link" href="/{{ html_lang }}" aria-label="{{ toHomePage }}">
+				<svg class="site-header__logotype" aria-hidden="true">
+					<use xlink:href="#logoPlaceholder"></use>
+				</svg>
+			</a>
+
+      <div class="site-header__menu">
+        {% module "module_17658937290552" path="/kan-theme/modules/KAN - Main menu", label="Main menu" no_wrapper=True %}
+      </div>
+
+    </div>
+  </div>
+</header>

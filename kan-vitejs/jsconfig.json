@@ -1,0 +1,14 @@
+{
+  "compilerOptions": {
+    "target": "ES2023",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "allowJs": true,
+    "checkJs": false,
+    "strict": false,
+    "jsx": "preserve",
+    "types": ["vite/client"]
+  },
+  "exclude": ["node_modules", "dist"],
+  "include": ["js/**/*"]
+}

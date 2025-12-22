@@ -1,0 +1,32 @@
+<!--
+    templateType: page
+    isAvailableForNewContent: false
+-->
+{% from "kan-theme/templates/macros/link/link-item.html" import linkItem %}
+{% from "kan-theme/templates/macros/link/link-item-icon.html" import linkItemIcon %}
+
+{% set linkGroupOptions = {
+  class: "link-group",
+  vertical: false,
+} %}
+
+{% macro linkGroup(links, options = linkGroupOptions) %}
+  {% set class = options.class|default(linkGroupOptions.class) %}
+  {% set vertical = options.vertical|default(linkGroupOptions.vertical) %}
+
+    {% if links|length %}
+    <ul class="{{ [class, vertical ? 'link-group--vertical' : '' ]|join(" ") }}">
+      {% for link in links %}
+        <li>
+        {% if link.link_style == "text-link--icon" %}
+          {{ linkItemIcon(link) }}
+        {% else %}
+          {{ linkItem(link.link, link.link_label, {
+          "style": link.link_style|length ? link.link_style : 'text-link text-link--discrete',
+          }) }}
+        {% endif %}
+        </li>
+      {% endfor %}
+      </ul>
+    {% endif %}
+{% endmacro %}

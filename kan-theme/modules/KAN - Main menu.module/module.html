@@ -1,0 +1,73 @@
+{% from "kan-theme/templates/macros/icon.html" import icon %}
+
+{% set MENU_ID = "main-menu-nav" %}
+
+{% set menu = menu(module.menu) %}
+
+<nav class="main-menu">
+	<button
+		class="main-menu__toggle hidden-m"
+		aria-expanded="false"
+		aria-controls="{{ MENU_ID }}"
+		aria-label="Toggle main menu navigation" {# Translate #}
+	>
+		{{ icon('iconMenu', {'attributes': 'data-icon-state="closed"'}) }}
+		{{ icon('iconClose', {'attributes': 'data-icon-state="open"'}) }}
+	</button>
+
+	<div id="{{ MENU_ID }}" class="main-menu__container">
+		<ul class="main-menu__list">
+			{% for parent in menu.children %}
+				{% set hasChildren =  parent.children|length > 0 %}
+				<li class="primary-menu-item">
+					{% if parent.url %}
+						<a class="primary-menu-link text-link text-link--discrete {{ parent.activeNode ? 'is-active' : '' }} {{ parent.activeBranch ? 'has-active-children' : '' }}" href="{{parent.url}}" target="{{ parent.linkTarget }}">
+							<span>{{ parent.label }}</span>
+						</a>
+					{% else %}
+						<button
+							class="primary-menu-button text-link text-link--discrete {{ parent.activeNode ? 'is-active' : '' }} {{ parent.activeBranch ? 'has-active-children' : '' }}"
+							id="primary-menu-item-{{ loop.index }}"
+							aria-expanded="false"
+							aria-controls="{{ 'menu-panel-' ~ loop.index }}"
+							>
+							<span>{{ parent.label }}</span>
+							{% if hasChildren %}
+								<svg class="icon iconChev" aria-hidden="true">
+									<use xlink:href="#iconChevronDown"></use>
+								</svg>
+							{% endif %}
+						</button>
+					{% endif %}
+					
+					{% if hasChildren %}
+						<div class="menu-panel" id="menu-panel-{{loop.index}}" aria-labelledby="primary-menu-item-{{index}}">
+							<div>
+								<ul class="menu-panel-list">
+									{% for child in parent.children %}  
+										<li class="child-menu-item">
+											<a class="child-menu-link fontSize-h4 text-link text-link--discrete {{ child.activeNode ? 'is-active' : '' }}" target="{{ child.linkTarget }}" href="{{ child.url }}">
+												{{child.label}}
+											</a>
+											{% if child.children|length > 0 %}
+												<ul class="menu-granchild-list">
+													{% for grandchild in child.children %}
+														<li class="grandchild-menu-item">
+															<a class="grandchild-menu-link text-link text-link--discrete {{ grandchild.activeNode ? 'is-active' : '' }}" target="{{ grandchild.linkTarget }}" href="{{ grandchild.url }}">
+																{{grandchild.label}}
+															</a>
+														</li>
+													{% endfor %}
+												</ul>
+											{% endif %}
+										</li>
+									{% endfor %}
+								</ul>
+							</div>
+						</div>
+					{% endif %}
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+</nav>

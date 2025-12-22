@@ -1,0 +1,207 @@
+body {
+  --font-min-size: var(--font-size-body-mobile);
+  --font-max-size: var(--font-size-body-desktop);
+
+  font-family: var(--fontFamily-body);
+  font-size: var(--fluid-font-size);
+  font-weight: var(--fontWeight-body);
+  font-style: normal;
+  line-height: var(--fontLh-body);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.font-size--h1,
+.font-size--h2,
+.font-size--h3,
+.font-size--h4,
+.font-size--h5,
+.font-size--h6,
+.text-heading {
+  font-family: var(--fontFamily-heading);
+  font-weight: var(--fontWeight-heading);
+  font-size: var(--fluid-font-size);
+  line-height: var(--fontLh-heading);
+
+  &:not(:first-child) {
+    --_spacing-start: 0.75em;
+    margin-block-start: var(--_spacing-start);
+  }
+
+  &:not(:last-child) {
+    --_spacing-end: 0.4em;
+    margin-block-end: var(--_spacing-end);
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  hyphens: auto;
+  -webkit-hyphenate-limit-before: 6;
+  -webkit-hyphenate-limit-after: 6;
+  -ms-hyphenate-limit-chars: 16 6 6;
+  hyphenate-limit-chars: 16 6 6;
+
+  /* Situationals */
+  .blog-body-content &,
+  .rich-text-content-module & {
+    --_spacing-start: 2em;
+
+    &:has(+ ul),
+    &:has(+ ol) {
+      --_spacing-end: 0.8em;
+    }
+  }
+}
+
+h1,
+.font-size--h1,
+.inherit-font-size--h1 :is(p, span) {
+  --font-min-size: var(--font-size-h1-mobile);
+  --font-max-size: var(--font-size-h1-desktop);
+  line-height: 1;
+}
+
+h2,
+.font-size--h2,
+.inherit-font-size--h2 :is(p, span) {
+  --font-min-size: var(--font-size-h2-mobile);
+  --font-max-size: var(--font-size-h2-desktop);
+}
+
+h3,
+.font-size--h3,
+.inherit-font-size--h3 :is(p, span) {
+  --font-min-size: var(--font-size-h3-mobile);
+  --font-max-size: var(--font-size-h3-desktop);
+}
+
+h4,
+.font-size--h4,
+.inherit-font-size--h4 :is(p, span) {
+  --font-min-size: var(--font-size-h4-mobile);
+  --font-max-size: var(--font-size-h4-desktop);
+}
+
+h5,
+.font-size--h5,
+.inherit-font-size--h5 :is(p, span) {
+  --font-min-size: var(--font-size-h5-mobile);
+  --font-max-size: var(--font-size-h5-desktop);
+  line-height: 1.2;
+}
+
+h6,
+.font-size--h6,
+.inherit-font-size--h6 :is(p, span) {
+  --font-min-size: var(--font-size-h6-mobile);
+  --font-max-size: var(--font-size-h6-desktop);
+  line-height: 1.2;
+}
+
+p,
+small,
+.font-size--paragraph,
+.font-size--preamble,
+.font-size--small,
+ul:not([class]),
+ol:not([class]) {
+  font-family: var(--fontFamily-body);
+  font-weight: var(--fontWeight-body);
+  font-size: var(--fluid-font-size);
+  line-height: var(--fontLh-body);
+
+  &:not(:last-child) {
+    margin-block-end: 1.4em;
+  }
+}
+
+p,
+.font-size--paragraph {
+  --font-min-size: var(--font-size-body-mobile);
+  --font-max-size: var(--font-size-body-desktop);
+}
+
+.font-size--preamble,
+.inherit-font-size--preamble :is(p, span) {
+  --font-min-size: var(--font-size-body-large-mobile);
+  --font-max-size: var(--font-size-body-large-desktop);
+}
+
+small,
+.font-size--small,
+.inherit-font-size--small :is(p, span) {
+  --font-min-size: var(--font-size-body-small-mobile);
+  --font-max-size: var(--font-size-body-small-desktop);
+}
+
+label,
+.font-size--label {
+  --font-min-size: var(--font-size-label-mobile);
+  --font-max-size: var(--font-size-label-desktop);
+
+  font-family: var(--fontFamily-body);
+  font-weight: var(--fontWeight-body);
+  font-size: var(--fluid-font-size);
+}
+
+.font-size--quote,
+.inherit-font-size--quote :is(p, span) {
+  --font-min-size: var(--font-size-quote-mobile);
+  --font-max-size: var(--font-size-quote-desktop);
+
+  font-family: var(--fontFamily-body);
+  font-weight: var(--fontWeight-quote);
+  font-size: var(--fluid-font-size);
+  line-height: var(--fontLh-quote);
+}
+
+strong,
+b {
+  font-weight: var(--fontWeight-bold);
+}
+
+figcaption {
+  font-family: var(--fontFamily-body);
+  font-weight: var(--fontWeight-bold);
+  color: inherit;
+  line-height: 1.25;
+  margin-block-start: 0.75em;
+}
+
+ul:not([class]),
+ol:not([class]) {
+  padding-inline-start: 1.625rem;
+
+  li {
+    margin-block-end: 1rem;
+
+    &::marker {
+      color: var(--color-text-secondary);
+    }
+  }
+}
+
+ul:not([class]) {
+  padding-inline-start: 2rem;
+
+  &,
+  [theme="light"] & {
+    --marker-color: var(--color-brand-sea);
+  }
+
+  [theme="dark"] & {
+    --marker-color: var(--color-primary-bright);
+  }
+
+  li {
+    &::marker {
+      color: var(--marker-color);
+    }
+  }
+}

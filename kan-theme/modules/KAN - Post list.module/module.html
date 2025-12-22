@@ -1,0 +1,153 @@
+{% import 'kan-theme/templates/macros/header/header.html' as _header %}
+{% import 'kan-theme/templates/macros/teasers/teaser-default.html' as _teaserDefault %}
+{% import 'kan-theme/templates/macros/pill/pill-list.html' as _pillList %}
+
+{% set carouselClass = "" %}
+
+{% if module.settings.carousel_type == "never" %}
+  {% set carouselClass = "" %}
+{% elif module.settings.carousel_type == "mobile" %}
+  {% set carouselClass = "carousel--mobile" %}
+{% elif module.settings.carousel_type == "always" %}
+  {% set carouselClass = "carousel" %}
+{% endif %}
+
+{% set verticalSpacingTop = module.settings.vertical_spacing_top %}
+{% set verticalSpacingBottom = module.settings.vertical_spacing_bottom %}
+
+{% set postType = module.post_section.post_type %}
+{% set blogTags = module.post_section.blog_tags %}
+{% set blogId = module.post_section.blog_id %}
+{% set numberOfPosts = module.post_section.number_of_posts %}
+{% set sortOrder = module.post_section.sort_order %}
+{% set hasTags = module.post_section.has_tags %}
+
+{% if postType == 'blog' %}
+  {% if blogTags|length %}
+    {% set posts = blog_recent_tag_posts(blogId, blogTags, numberOfPosts)|sort(False, False, sortOrder)|rejectattr('id', 'equalto', content.id) %}
+  {% else %}
+    {% set posts = blog_recent_posts(blogId, numberOfPosts)|sort(False, False, sortOrder)|rejectattr('id', 'equalto', content.id) %}
+  {% endif %}
+{% elif postType == 'manual' %}
+  {% set posts = module.post_section.posts %}
+{% elif postType == 'page' %}
+  {% set posts = module.post_section.pages %}
+{% endif %}
+
+<section class="{{ ["post-list-module center-grid", verticalSpacingTop, verticalSpacingBottom]| join(' ') }}" theme="{{ module.settings.theme }}">
+    {{ _header.header(module.header.heading, module.header.preamble, module.header.links, {
+      headerClass: 'mb-xl-4',
+      headingLevel: module.header.headingLevel
+    } ) }}
+
+    {% if posts|length %}
+      {% if carouselClass|length %}
+        <div class="carousel-container">
+          <div class="{{ carouselClass }}" data-name="carousel-container" {{ carouselClass == 'carousel' ? 'data-carousel-draggable="true"' : '' }}>
+      {% endif %}
+      <ul class="{{ ["grid grid--fill grid--r-gap-large", "carousel__inner" ]|join(' ') }}" {{ carouselClass|length ? 'data-name="carousel"' : '' }}>
+          {% for post in posts %}
+            {% set firstIsFeatured = module.settings.has_featured_post and loop.first %}
+            {% set customTeaserClass = '' %}
+
+            {% if firstIsFeatured %}
+              {% set customTeaserClass = 'teaser-default--large' %}
+            {% endif %}
+
+            {# Blog post listing #}
+            {% if postType == 'blog' %}
+
+              {% set blogPostMedia = {
+                type: 'image', 
+                image: {
+                  src: post.featured_image,
+                  alt: post.featured_image_alt_text,
+                  width: post.featured_image_width,
+                  height: post.featured_image_height,
+                  loading: 'lazy'
+                  },
+                video: false
+              } %}
+
+              {% set post_tags = [] %}
+
+              {% if hasTags %}
+                {% for tag in post.tag_list %}
+                  {% do post_tags.append({
+                    "tag_label": tag.name,
+                    "icon": "",
+                    "link": { 
+                      "url": { 
+                        "href": blog_tag_url(group.id, tag.slug)
+                        }, 
+                      "open_in_new_tab": false,
+                      "rel": ""
+                    }
+                  }) %}
+                {% endfor %}
+              {% endif %}
+
+              <li class="{{ ["post-list-module__list-item", firstIsFeatured ? 'bleed-full' : '', carouselClass|length ? 'carousel__item' : '']|join(' ') }}">
+                {{ _teaserDefault.teaserDefault(blogPostMedia, post.name, post.widgets.module_17659680249203.body.preamble, { url: { href: post.absolute_url } }, {
+                  class: customTeaserClass,
+                  tags: post_tags,
+                }) }}
+              </li>
+
+            {% elif postType == 'manual' %}
+            {# Manual post listing #}
+
+              {% set postMedia = {
+                type: 'image',
+                image: post.image,
+                video: false
+              }%}
+                <li class="{{ ["post-list-module__list-item", firstIsFeatured ? 'bleed-full' : '', carouselClass|length ? 'carousel__item' : '']|join(' ') }}">
+                    {{ _teaserDefault.teaserDefault(postMedia, post.heading, post.preamble, post.link, {
+                      class: customTeaserClass,
+                    }) }}
+                </li>
+            {# Page post listing #}
+            {% elif postType == 'page' %}
+                {% set page = content_by_id(post) %}
+                {% set pageTeaser = page.widgets.module_17582864987451.body %}
+                <li class="{{ ["post-list-module__list-item", firstIsFeatured ? 'bleed-full' : '', carouselClass|length ? 'carousel__item' : '']|join(' ') }}">
+                {% if pageTeaser %}
+                  {{ _teaserDefault.teaserDefault(
+                    {
+                      "type": pageTeaser.media.type ? pageTeaser.media.type : "image",
+                      "image": pageTeaser.media.image,
+                      "video": pageTeaser.media.video  
+                    },
+                    pageTeaser.heading,
+                    pageTeaser.preamble,
+                    { "url": { "href": page.absolute_url } }
+                  ) }}
+                {% else %}
+                  {{ _teaserDefault.teaserDefault(
+                    {
+                      "type": "image",
+                      "image": {
+                        "src": page.featured_image,
+                        "alt": page.featured_image_alt_text,
+                        "width": page.featured_image_width,
+                        "height": page.featured_image_height,
+                        "loading": "lazy"
+                        },
+                      "video": false
+                    },
+                    page.pageTitle,
+                    "",
+                    { "url": { "href": page.absolute_url } }
+                  ) }}
+                {% endif %}
+                </li>
+            {% endif %}
+          {% endfor %}
+    </ul>
+    {% if carouselClass|length %}
+    </div>
+    </div>
+    {% endif %}
+    {% endif %}
+</section>

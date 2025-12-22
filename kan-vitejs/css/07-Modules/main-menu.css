@@ -1,0 +1,25 @@
+.main-menu {
+}
+
+.main-menu__toggle {
+  &[aria-expanded="false"] {
+    [data-icon-state="open"] {
+      display: none;
+    }
+  }
+
+  &[aria-expanded="true"] {
+    [data-icon-state="closed"] {
+      display: none;
+    }
+  }
+}
+
+.main-menu__list {
+  list-style: none;
+  margin: 0;
+  padding-inline-start: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}

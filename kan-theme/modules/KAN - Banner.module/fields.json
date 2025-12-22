@@ -1,0 +1,346 @@
+[ {
+  "id" : "3309f5f9-d76f-0099-5cd8-4d4e6a4ae962",
+  "name" : "settings",
+  "label" : "Settings",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "8774fb21-4b8c-4ec5-d458-0b657d30ce5f",
+    "name" : "reverse",
+    "label" : "Reverse content / media order",
+    "required" : false,
+    "locked" : false,
+    "display" : "toggle",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : true
+  },
+{
+    "id" : "1aebb8b3-59ab-fa98-85da-44e751886252",
+    "name" : "theme",
+    "label" : "Theme",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "dark", "Dark" ], [ "light", "Light" ], [ "light secondary", "Light secondary" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "light"
+  }],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "reverse" : true
+  }
+}, {
+  "id" : "93fedad7-147f-778d-1e67-f2d33c69676d",
+  "name" : "content",
+  "label" : "Content",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "9b8d1e9e-9a37-2cff-69d9-46f3f1e08b81",
+    "name" : "heading",
+    "label" : "Heading",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : "Lorem ipsum dolar sit amet"
+  }, {
+    "id" : "0135cecg-52bd-cf68-3fcd-b3fa2ef2e9af",
+    "name" : "heading_class",
+    "label" : "Heading size",
+    "required" : true,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "font-size--h1", "H1" ], [ "font-size--h2", "H2" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "font-size--h1"
+  }, {
+    "id" : "0247bfbf-52bd-cf68-3fcd-b3fa2ef3f8be",
+    "name" : "heading_tag",
+    "label" : "Heading tag",
+    "inline_help_text" : "Only use H1 if this moudle is the first on the page, otherwise use H2.",
+    "required" : true,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "h1", "H1" ], [ "h2", "H2" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "h1"
+  }, {
+    "id" : "5766932f-6edc-c0e6-35b0-e82d1b68bc73",
+    "name" : "preamble",
+    "label" : "Preamble",
+    "required" : false,
+    "locked" : false,
+    "type" : "richtext",
+    "display_width" : null,
+    "default" : "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.&nbsp; Integer posuere erat a ante venenatis dapibus posuere velit aliquet."
+  }, {
+    "id" : "064aa9a1-b51a-f36f-04ed-113ab7b5e563",
+    "name" : "media",
+    "label" : "Media - Image / Video",
+    "required" : false,
+    "locked" : false,
+    "children" : [ {
+      "id" : "2ed39b5c-e4b2-a657-2edc-fa80fa309668",
+      "name" : "type",
+      "label" : "Media Type",
+      "required" : false,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "image", "Image" ], [ "video", "Video" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : "image"
+    }, {
+      "id" : "5e06d657-a4bd-f008-3a7b-05f1f40ce54b",
+      "name" : "image",
+      "label" : "Image",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "content.media.type",
+        "controlling_value_regex" : "image",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "responsive" : true,
+      "resizable" : false,
+      "show_loading" : true,
+      "type" : "image",
+      "display_width" : null,
+      "default" : {
+        "src" : "https://4354097.fs1.hubspotusercontent-na1.net/hubfs/4354097/dev/placeholder-450x500.png",
+        "alt" : "placeholder-450x500",
+        "width" : 500,
+        "height" : 450,
+        "max_width" : 500,
+        "max_height" : 450
+      }
+    }, {
+      "picker" : "video",
+      "id" : "f96c043c-d863-9eb2-6d28-5ad5ff75957c",
+      "name" : "video",
+      "label" : "Video",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "content.media.type",
+        "controlling_value_regex" : "video",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "type" : "file",
+      "display_width" : null
+    }, {
+      "id" : "content.media.enable_audio_toggle",
+      "name" : "enable_audio_toggle",
+      "label" : "Enable audio toggle",
+      "inline_help_text" : "Shows audio toggle button on video.",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "content.media.type",
+        "controlling_value_regex" : "video",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "display" : "toggle",
+      "type" : "boolean",
+      "display_width" : null,
+      "default" : false
+    }, {
+      "id" : "e87e132c-d863-9eb2-6d28-5ad5ff75957c",
+      "name" : "size_cover",
+      "label" : "Video size contain / cover",
+      "inline_help_text" : "Sets video size to respect aspect ratio (contain) or fill the entire container (cover).",
+      "required" : false,
+      "locked" : false,
+      "visibility" : {
+        "controlling_field" : null,
+        "controlling_field_path" : "content.media.type",
+        "controlling_value_regex" : "video",
+        "property" : null,
+        "operator" : "EQUAL",
+        "access" : null
+      },
+      "display" : "toggle",
+      "type" : "boolean",
+      "display_width" : null,
+      "default" : false
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : {
+      "type" : "image",
+      "image" : {
+        "src" : "https://4354097.fs1.hubspotusercontent-na1.net/hubfs/4354097/dev/placeholder-450x500.png",
+        "alt" : "placeholder-450x500",
+        "width" : 500,
+        "height" : 450,
+        "max_width" : 500,
+        "max_height" : 450
+      }
+    }
+  }, {
+    "id" : "c9ffce9e-8e9f-c93c-d4b3-c70d7aaae5a7",
+    "name" : "links",
+    "label" : "links",
+    "required" : false,
+    "locked" : false,
+    "occurrence" : {
+      "min" : null,
+      "max" : null,
+      "sorting_label_field" : null,
+      "default" : 2
+    },
+    "children" : [ {
+      "id" : "f65cc569-9b6a-db7f-931e-68c0ccc6baea",
+      "name" : "link_style",
+      "label" : "Link Style",
+      "required" : true,
+      "locked" : false,
+      "display" : "select",
+      "choices" : [ [ "btn", "Button Primary" ], [ "btn btn--secondary", "Button Secondary" ], [ "btn btn--tertiary", "Button Tertiary" ], [ "btn btn--quaternary", "Button Quaternary" ], [ "btn btn--quinary", "Button Quinary (with arrow icon)" ] ],
+      "multiple" : false,
+      "reordering_enabled" : true,
+      "preset" : null,
+      "type" : "choice",
+      "display_width" : null,
+      "default" : "btn"
+    }, {
+      "id" : "b05d3342-0089-6a4c-fb56-6cb6c5524516",
+      "name" : "link",
+      "label" : "Link url",
+      "required" : false,
+      "locked" : false,
+      "supported_types" : [ "EXTERNAL", "FILE", "CONTENT", "EMAIL_ADDRESS", "BLOG", "PHONE_NUMBER" ],
+      "show_advanced_rel_options" : true,
+      "type" : "link",
+      "display_width" : null,
+      "default" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "",
+          "type" : "CONTENT"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      }
+    }, {
+      "id" : "e006029a-94e2-e1a3-98f6-b30809c62534",
+      "name" : "link_label",
+      "label" : "Link label",
+      "required" : false,
+      "locked" : false,
+      "allow_new_line" : false,
+      "type" : "text",
+      "display_width" : null,
+      "default" : "Button ipsum"
+    } ],
+    "tab" : "CONTENT",
+    "expanded" : false,
+    "group_occurrence_meta" : null,
+    "type" : "group",
+    "display_width" : null,
+    "default" : [ {
+      "link_style" : "btn",
+      "link" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      },
+      "link_label" : "Button ipsum"
+    }, {
+      "link_style" : "btn btn--secondary",
+      "link" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      },
+      "link_label" : "Button ipsum"
+    } ]
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "heading" : "Lorem ipsum dolar sit amet",
+    "preamble" : "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor.&nbsp; Integer posuere erat a ante venenatis dapibus posuere velit aliquet.",
+    "media" : {
+      "type" : "image",
+      "image" : {
+        "src" : "https://4354097.fs1.hubspotusercontent-na1.net/hubfs/4354097/dev/placeholder-450x500.png",
+        "alt" : "placeholder-450x500",
+        "width" : 500,
+        "height" : 450,
+        "max_width" : 500,
+        "max_height" : 450
+      }
+    },
+    "links" : [ {
+      "link_style" : "btn",
+      "link" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      },
+      "link_label" : "Button ipsum"
+    }, {
+      "link_style" : "btn btn--secondary",
+      "link" : {
+        "url" : {
+          "content_id" : null,
+          "href" : "",
+          "type" : "EXTERNAL"
+        },
+        "open_in_new_tab" : false,
+        "no_follow" : false
+      },
+      "link_label" : "Button ipsum"
+    } ]
+  }
+} ]

@@ -1,0 +1,89 @@
+/** 
+ * Spacing
+ *
+ * All --spaxing-x-viewport variables are in rem and are set as custom properties without the rem unit.
+ * The reason for this is to work with the fluid spacing setup in the fluidSpacing.css file.
+ * The fluid spacing setup calculates the size based on the viewport width.
+ *
+ * For more information on fluid spacing, see the fluidSpaxing.css file and it's references.
+ *
+ *
+ * DON'T ADD UNITS TO THE VALUES!
+**/
+
+:root {
+  /** 
+  * Fluid spacings
+  * All values must be stored in REM without the unit to work properly with the fluid size calculations
+  **/
+
+  --spacing-none-mobile: 0; /* 0px */
+  --spacing-2XS-mobile: 0.25; /* 4px */
+  --spacing-XS-mobile: 0.5; /* 8px */
+  --spacing-S-mobile: 0.75; /* 12px */
+  --spacing-M-mobile: 1; /* 16px */
+  --spacing-L-mobile: 1.25; /* 20px */
+  --spacing-XL-mobile: 1.5; /* 24px */
+  --spacing-2XL-mobile: 2; /* 32px */
+  --spacing-3XL-mobile: 2.5; /* 40px */
+  --spacing-4XL-mobile: 3; /* 48px */
+  --spacing-5XL-mobile: 3.5; /* 56px */
+  --spacing-6XL-mobile: 4.5; /* 72px */
+
+  --spacing-none-desktop: 0; /* 0px */
+  --spacing-2XS-desktop: 0.5; /* 8px */
+  --spacing-XS-desktop: 0.75; /* 12px */
+  --spacing-S-desktop: 1; /* 16px */
+  --spacing-M-desktop: 1.5; /* 24px */
+  --spacing-L-desktop: 2; /* 32px */
+  --spacing-XL-desktop: 2.5; /* 40px */
+  --spacing-2XL-desktop: 3; /* 48px */
+  --spacing-3XL-desktop: 3.5; /* 56px */
+  --spacing-4XL-desktop: 5; /* 80px */
+  --spacing-5XL-desktop: 6; /* 96px */
+  --spacing-6XL-desktop: 7.5; /* 120px */
+
+  /* End fluid size */
+
+  /* The outmost padding between content and screen/browser end */
+
+  /* Imutable for mobile, where we don't want it to grow ever */
+  --site-padding-inmutable: 1rem;
+
+  /* Fluid padding above 360px fluid 360-1920px */
+  --site-padding-fluid: clamp(1rem, -0.269rem + 5.64vw, 6.5rem);
+
+  /* Wrapper widths  */
+  --content-max-width: 50rem;
+  --content-max-width-large: 67.5rem;
+  --center-grid-content-width: 105rem; /* 1680px */
+
+  /* Center content with fluid spaceing */
+  --center-grid: [full-start] minmax(var(--site-outer-padding), 1fr)
+    [main-start] minmax(0, var(--center-grid-content-width))
+    [main-end]minmax(var(--site-outer-padding), 1fr) [full-end];
+
+  --center-grid-split: [full-start] minmax(var(--site-outer-padding), 1fr)
+    [main-start] minmax(0, calc(var(--center-grid-content-width) / 2))
+    [main-center] minmax(0, calc(var(--center-grid-content-width) / 2))
+    [main-end]minmax(var(--site-outer-padding), 1fr) [full-end];
+
+  --grid-gap-mobile: 1.25rem; /* 20px */
+  --grid-gap-desktop: 1.25rem; /* 20px */
+}
+
+/* DESIGN SYSTEM APPLICATION */
+
+/* Mobile */
+:root {
+  --site-outer-padding: var(--site-padding-inmutable);
+  --grid-gap: var(--grid-gap-mobile);
+}
+
+/* Tablet, Laptop, Desktop */
+@media (--viewport-sm) {
+  :root {
+    --site-outer-padding: var(--site-padding-fluid);
+    --grid-gap: var(--grid-gap-desktop);
+  }
+}

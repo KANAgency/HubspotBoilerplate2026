@@ -1,0 +1,55 @@
+<!--
+    templateType: page
+    isAvailableForNewContent: false
+-->
+
+{% set mediaOptions = {
+    figureAttr: '',
+    imageAttr: '',
+    videoAttr: 'autoplay playsinline muted loop',
+    sourceAttr: '',
+    videoLazy: true,
+    }
+%}
+
+{% macro media(type = 'image', image, video, options = mediaOptions) %}
+    {% set videoAttr = options.videoAttr|default(mediaOptions.videoAttr) %}
+    {% set imageAttr = options.imageAttr|default(mediaOptions.imageAttr) %}
+
+    {% if image.src or video %}
+        <figure class="figure" {{ customAttr }} {{ video ? 'data-video-container' : ''}} {{ options.figureAttr }}>
+            {% if type == 'image' %}
+                {% if image.src %}
+                    {% set sizeAttrs = 'width="{{ image.width|round|escape_attr }}" height="{{ image.height|round|escape_attr }}"' %}
+                    {% if image.size_type == 'auto' %}
+                        {% set sizeAttrs = 'width="{{ image.width|round|escape_attr }}" height="{{ image.height|round|escape_attr }}"' %}
+                    {% elif image.size_type == 'auto_custom_max' %}
+                        {% set sizeAttrs = 'width="{{ image.max_width|round|escape_attr }}" height="{{ image.max_height|round|escape_attr }}"' %}
+                    {% endif %}
+                    {% set loadingAttr = image.loading != 'disabled' ? 'loading="{{ image.loading|escape_attr }}"' : 'loading="lazy"' %}
+                    <img class="image" src="{{ image.src|escape_url }}" alt="{{ image.alt|escape_attr }}" {{ loadingAttr }} {{ sizeAttrs }} {{ imageAttr }} itemprop="image" />
+                {% endif %}
+
+            {% elif type == 'video' %}
+                {% set videoLazy = options.videoLazy|default(mediaOptions.videoLazy) %}
+                {% if video %}
+                    <video class="video"  {{ videoLazy ? 'data-lazy' : '' }} {{ videoAttr }} itemprop="video"  data-video>
+                        <source src="{{ videoLazy ? '' : video }}" {{ videoLazy ? 'data-src="{{ video }}"' : '' }} type="video/mp4">
+                        Sorry, your browser doesn't support embedded videos.
+                    </video>
+
+                    {% if videoAttr == mediaOptions.videoAttr %} 
+                        <button class="video-toggle-button" aria-label="Toggle video" aria-pressed="true" data-video-toggle>
+                            <svg class="video-on-icon" aria-hidden="true">
+                                <use xlink:href="#iconPlay"></use>
+                            </svg>
+                            <svg class="video-off-icon" aria-hidden="true">
+                                <use xlink:href="#iconPause"></use>
+                            </svg>    
+                        </button>
+                    {% endif %}
+                {% endif %}
+            {% endif %}
+        </figure>
+    {% endif %}
+{% endmacro %}

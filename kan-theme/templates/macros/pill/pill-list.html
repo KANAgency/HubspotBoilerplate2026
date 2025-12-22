@@ -1,0 +1,15 @@
+<!--
+    templateType: page
+    isAvailableForNewContent: false
+-->
+{% from 'kan-theme/templates/macros/pill/pill.html' import pill %}
+
+{% macro pillList(tags) %}
+    {% if tags|length %}
+        <ul class="pill-list">
+            {% for tag in tags %}
+            <li>{{ pill(tag.tag_label, tag.link, tag.icon) }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endmacro %}

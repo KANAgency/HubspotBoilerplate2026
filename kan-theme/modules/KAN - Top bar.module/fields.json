@@ -1,0 +1,22 @@
+[
+    {
+        "id": "99298fd7-236c-6e2f-f695-f47c962d1220",
+        "name": "display_language_picker",
+        "label": "Display language picker",
+        "required": false,
+        "locked": false,
+        "display": "toggle",
+        "type": "boolean",
+        "display_width": null,
+        "default": true
+    },
+    {
+        "id": "1526bd9c-f319-8d82-07de-2c60690c5e14",
+        "name": "menu",
+        "label": "Top bar menu",
+        "required": false,
+        "locked": false,
+        "type": "menu",
+        "display_width": null
+    }
+]

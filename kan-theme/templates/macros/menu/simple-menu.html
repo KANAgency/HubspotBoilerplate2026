@@ -1,0 +1,27 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+
+{% from "kan-theme/templates/macros/link/link-item.html" import linkItem %}
+
+{% macro simple_menu(menu_items) %}
+    {% if menu_items|length > 0 %}
+        <nav class="simple-menu">
+            <ul class="simple-menu__list">
+                {% for item in menu_items %}
+                     {% set link = {
+                            "url": {
+                                "href": item.url,
+                            },
+                            "open_in_new_tab": item.linkTarget is equalto "_blank",
+                        }
+                        %}
+                    <li class="simple-menu__item">
+                        {{ linkItem(link, item.label, {'style': 'simple-menu__menu-item text-heading text-link text-link--discrete text-secondary'}) }}
+                    </li>
+                {% endfor %}
+            </ul>
+        </nav>
+    {% endif %}
+{% endmacro %}

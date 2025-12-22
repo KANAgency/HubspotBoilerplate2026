@@ -1,0 +1,58 @@
+.alert-banner {
+  display: none;
+
+  & .alert-banner__content {
+    align-items: flex-start;
+    display: flex;
+    grid-column: main-start / main-end;
+    justify-content: space-between;
+
+    @media (--viewport-m) {
+      align-items: center;
+    }
+  }
+
+  & .alert-banner__message {
+    margin-block-end: 0;
+    display: grid;
+    grid-template-columns: 1.5rem 1fr;
+    gap: 0.5rem;
+    max-width: revert;
+  }
+
+  & .read-more {
+    text-decoration-color: transparent;
+    text-decoration-thickness: 2px;
+
+    &:hover {
+      text-decoration-color: inherit;
+    }
+  }
+
+  & .alert-banner__dismiss {
+    flex-shrink: 0;
+    cursor: pointer;
+    border-radius: 999px;
+    padding: 0.25rem;
+    background-color: transparent;
+    transition: background-color 250ms ease-in-out;
+
+    &:hover,
+    &:focus-visible {
+      background-color: color-mix(
+        in oklab,
+        var(--color-primary-dark) 10%,
+        transparent
+      );
+    }
+
+    &:focus-visible {
+      box-shadow: 0px 0px 0px 2px var(--color-primary-dark);
+    }
+  }
+
+  & .icon {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+}

@@ -1,0 +1,35 @@
+[class*='border-'] {
+  --border-color: var(--color-border-primary);
+  --border: 0.5px solid var(--border-color);
+}
+
+.border {
+  &--secondary {
+    --border-color: var(--color-border-secondary);
+  }
+  &-y {
+    border-top: var(--border);
+    border-bottom: var(--border);
+  }
+
+  &-x {
+    border-left: var(--border);
+    border-right: var(--border);
+  }
+
+  &-t {
+    border-top: var(--border);
+  }
+
+  &-r {
+    border-right: var(--border);
+  }
+
+  &-b {
+    border-bottom: var(--border);
+  }
+
+  &-l {
+    border-left: var(--border);
+  }
+}

@@ -1,0 +1,21 @@
+.page-header-module {
+}
+
+.page-header-module__header {
+
+    &.text-center > * {
+        margin-inline: auto;
+    }
+
+    &.text-right > * {
+        margin-inline-start: auto;
+    }
+
+  .header__heading {
+    max-width: var(--content-max-width-large);
+  }
+
+  .header__preamble {
+    max-width: var(--content-max-width);
+  }
+}

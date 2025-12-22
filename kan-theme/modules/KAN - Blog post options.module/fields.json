@@ -1,0 +1,12 @@
+[  {
+    "id" : "9b8d1e9e-9a37-2cff-69d9-46f3f1e08b81",
+    "name" : "preamble",
+    "label" : "Teaser preamble",
+    "inline_help_text" : "Short introductory text used for blog post teasers",
+    "required" : false,
+    "locked" : false,
+    "allow_new_line" : false,
+    "type" : "text",
+    "display_width" : null,
+    "default" : ""
+  } ]

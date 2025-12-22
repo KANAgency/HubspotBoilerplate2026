@@ -1,0 +1,41 @@
+{% from 'kan-theme/templates/macros/menu/simple-menu.html' import simple_menu %}
+{% from 'kan-theme/templates/macros/link/link-group.html' import linkGroup %}
+
+{% set footer_menu = menu(module.menu) %}
+{% set footer_secondary_menu = menu(module.secondary_menu) %}
+{% set address_label = module.address_label %}
+{% set address = module.address %}
+{% set social_links_label = module.social_links_label %}
+{% set social_links = module.social_links %}
+{% set contact_links = module.contact_links %}
+  
+
+  
+<footer class="site-footer center-grid py-xl-4" theme="dark">
+  <div class="site-footer__top pb-xl-4">
+    <div class="site-footer__menu-container">
+      {{ simple_menu(footer_menu.children) }}
+    </div>
+
+    <div class="site-footer__info">
+      <address class="site-footer__address">
+        <p class="site-footer__info-label">{{ address_label }}</p>
+        <div class="site-footer__address-text text-heading">{{ address }}</div>
+      </address>
+      
+      <div class="site-footer__social">
+        <p class="site-footer__info-label">{{ social_links_label }}</p>
+        {{ linkGroup(social_links, {'class': 'link-group site-footer__social-links text-heading', 'vertical': true }) }}
+      </div>
+
+    </div>
+  </div>
+
+  <div class="site-footer__bottom">
+    {{ linkGroup(contact_links, {'class': 'link-group site-footer__contact-links text-heading', 'vertical': true }) }}
+    <div class="site-footer__simple-menu">
+      {{ simple_menu(footer_secondary_menu.children) }}
+      <small class="site-footer__copyright text-heading">&copy; {{ year }} {{ branding_company_name }}</small>
+    </div>
+  </div>
+</footer>

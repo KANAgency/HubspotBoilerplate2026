@@ -1,0 +1,32 @@
+<!--
+    templateType: page
+    isAvailableForNewContent: false
+-->
+
+{% set headerOptions = {
+    headerClass: 'mb-xl-4',
+    headingLevel: 'h2'
+    }
+%}
+{% macro header(heading, preamble, links, options = headerOptions) %}
+    {% set headingLevel = options.headingLevel|default(headerOptions.headingLevel) %}
+    {% set headerClass = options.headerClass|default(headerOptions.headerClass) %}
+
+    {% if heading or preamble or links|length %}
+        <header class="{{ ["header", headerClass]|join(' ') }}">
+        {% if heading %}
+			<{{ headingLevel }} class="header__heading">{{ heading }}</{{ headingLevel }}>
+        {% endif %}
+        {% if preamble %}
+			<p class="header__preamble font-size--preamble">
+				{{ preamble }}
+			</p>
+        {% endif %}
+        {% if links|length %}
+            <div class="header__links mt-xl">
+			{{ _links.linkGroup(links) }}
+            </div>
+        {% endif %}
+        </header>
+    {% endif %}
+{% endmacro %}

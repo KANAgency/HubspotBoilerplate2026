@@ -1,0 +1,7 @@
+.post-list-module {
+  position: relative;
+}
+
+.post-list-module__list-item {
+  max-width: revert;
+}
