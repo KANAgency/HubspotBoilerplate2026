@@ -19,14 +19,13 @@
 {% set blogTags = module.post_section.blog_tags %}
 {% set blogId = module.post_section.blog_id %}
 {% set numberOfPosts = module.post_section.number_of_posts %}
-{% set sortOrder = module.post_section.sort_order %}
 {% set hasTags = module.post_section.has_tags %}
 
 {% if postType == 'blog' %}
   {% if blogTags|length %}
-    {% set posts = blog_recent_tag_posts(blogId, blogTags, numberOfPosts)|sort(False, False, sortOrder)|rejectattr('id', 'equalto', content.id) %}
+    {% set posts = blog_recent_tag_posts(blogId, blogTags, numberOfPosts)|rejectattr('id', 'equalto', content.id) %}
   {% else %}
-    {% set posts = blog_recent_posts(blogId, numberOfPosts)|sort(False, False, sortOrder)|rejectattr('id', 'equalto', content.id) %}
+    {% set posts = blog_recent_posts(blogId, numberOfPosts)|rejectattr('id', 'equalto', content.id) %}
   {% endif %}
 {% elif postType == 'manual' %}
   {% set posts = module.post_section.posts %}

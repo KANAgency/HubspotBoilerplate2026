@@ -1,0 +1,228 @@
+.carousel-container {
+  position: relative;
+  grid-column: 1 / -1;
+
+  &:has(.carousel--mobile) {
+    @media (--viewport-m) {
+      grid-column: main-start / main-end;
+
+      .carousel__btn {
+        display: none;
+      }
+    }
+  }
+}
+
+.carousel {
+  /* Will break GSAP Draggable - is only applied while is-dragging class is not present */
+  /* scroll-behavior: smooth;
+  scroll-snap-type: x mandatory; */
+  scrollbar-width: none;
+  overflow-x: auto;
+  overflow-y: hidden;
+  anchor-name: --trip-carousel;
+
+  user-select: none; /* Prevents text selection while dragging */
+
+  padding-inline: var(--site-outer-padding);
+  @media (width >= 1880px) {
+    padding-inline: calc((100vw - var(--center-grid-content-width)) / 2);
+  }
+
+  &:not(.is-dragging) {
+    scroll-behavior: smooth;
+  }
+}
+
+.carousel,
+.carousel--mobile {
+  /*  add prev/next buttons  */
+  &::scroll-button(left) {
+    content: "" / "Scroll backwards";
+    right: calc(var(--site-outer-padding) + 3rem + 1rem);
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M16.6644 2.26367L3.06087 15.8662L16.6644 29.4697L15.6029 30.5303L1.47005 16.3975C1.17723 16.1046 1.17737 15.6298 1.47005 15.3369L15.6029 1.20312L16.6644 2.26367Z"/><path d="M30.0001 15.1168V16.6168H2.00011V15.1168H30.0001Z"/></svg>')
+      no-repeat center / 1.5rem;
+
+    @media (width >= 1880px) {
+      right: calc(((100vw - var(--center-grid-content-width)) / 2) + 4rem);
+    }
+  }
+
+  &::scroll-button(right) {
+    content: "" / "Scroll forwards";
+    right: var(--site-outer-padding);
+    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M30.5306 15.3359C30.8235 15.6288 30.8234 16.1046 30.5306 16.3975L16.3968 30.5303L15.3362 29.4697L28.9378 15.8662L15.3362 2.26367L16.3968 1.20312L30.5306 15.3359Z"/><path d="M30 15.1167V16.6167H2V15.1167H30Z"/></svg>')
+      no-repeat center / 1.5rem;
+
+    @media (width >= 1880px) {
+      right: calc((100vw - var(--center-grid-content-width)) / 2);
+    }
+  }
+
+  &::scroll-button(*) {
+    position: absolute;
+    position-anchor: --trip-carousel;
+    z-index: var(--z-above);
+
+    display: grid;
+    place-items: center;
+    width: 3rem;
+    height: 3rem;
+    bottom: -1.5rem;
+    aspect-ratio: 1 / 1;
+    border-radius: 100%;
+    cursor: pointer;
+    border: 1px solid var(--color-black);
+    background-color: transparent;
+    transition-property: scale, opacity;
+    transition-duration: 300ms;
+    transition-timing-function: ease-in-out;
+
+    @media (--viewport-m) {
+      top: -6.5rem;
+    }
+  }
+
+  &::scroll-button(*):disabled {
+    opacity: 0.3;
+  }
+
+  &::scroll-button(*):not(:disabled):hover {
+    scale: 1.1;
+  }
+
+  &::scroll-button(*):focus-visible {
+    outline-offset: 5px;
+  }
+}
+
+/* Fallback buttons */
+.carousel__btn {
+  position: absolute;
+  position-anchor: --trip-carousel;
+  z-index: var(--z-above);
+
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  bottom: -1.5rem;
+  aspect-ratio: 1 / 1;
+  border-radius: 100%;
+  cursor: pointer;
+  border: 1px solid var(--color-black);
+  background-color: transparent;
+  background-size: 1.5rem;
+  transition-property: scale, opacity;
+  transition-duration: 300ms;
+  transition-timing-function: ease-in-out;
+
+  @media (--viewport-m) {
+    top: -6.5rem;
+  }
+}
+
+.carousel__btn.carousel__btn--prev {
+  content: "" / "Scroll backwards";
+  right: calc(var(--site-outer-padding) + 3rem + 1rem);
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M16.6644 2.26367L3.06087 15.8662L16.6644 29.4697L15.6029 30.5303L1.47005 16.3975C1.17723 16.1046 1.17737 15.6298 1.47005 15.3369L15.6029 1.20312L16.6644 2.26367Z"/><path d="M30.0001 15.1168V16.6168H2.00011V15.1168H30.0001Z"/></svg>')
+    no-repeat center / 1.5rem;
+
+  @media (width >= 1880px) {
+    right: calc(((100vw - var(--center-grid-content-width)) / 2) + 4rem);
+  }
+}
+
+.carousel__btn.carousel__btn--next {
+  content: "" / "Scroll forwards";
+  right: var(--site-outer-padding);
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" fill="currentColor"><path d="M30.5306 15.3359C30.8235 15.6288 30.8234 16.1046 30.5306 16.3975L16.3968 30.5303L15.3362 29.4697L28.9378 15.8662L15.3362 2.26367L16.3968 1.20312L30.5306 15.3359Z"/><path d="M30 15.1167V16.6167H2V15.1167H30Z"/></svg>')
+    no-repeat center / 1.5rem;
+
+  @media (width >= 1880px) {
+    right: calc((100vw - var(--center-grid-content-width)) / 2);
+  }
+}
+
+.carousel__btn:focus-visible {
+  outline-offset: 5px;
+}
+
+.carousel__btn:disabled {
+  opacity: 0.3;
+}
+
+.carousel__btn:not(:disabled):hover {
+  scale: 1.1;
+}
+
+.carousel .carousel__inner {
+  position: relative;
+  width: 100dvw;
+  display: grid;
+  grid-template-columns: revert;
+  grid-auto-flow: column;
+  padding-block-end: 4rem;
+
+  /* ::scroll-button() supported */
+  /* @supports selector(::scroll-button(*)) {
+    
+  } */
+}
+
+.carousel--mobile .carousel__inner {
+  @media (--until-desktop) {
+    position: relative;
+    display: grid;
+    grid-template-columns: revert;
+    grid-auto-flow: column;
+  }
+}
+
+.carousel--mobile {
+  @media (--until-desktop) {
+    position: relative;
+    padding-inline: var(--site-outer-padding);
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    display: grid;
+    grid-template-columns: revert;
+    grid-auto-flow: column;
+    scroll-snap-type: x mandatory;
+    overflow-x: auto;
+    anchor-name: --trip-carousel;
+    padding-block-end: 4rem;
+
+    &.grid {
+      grid-column: 1 / -1;
+    }
+
+    /* ::scroll-button() supported */
+    @supports selector(::scroll-button(*)) {
+      padding-block-end: 4rem;
+    }
+  }
+
+  @media (--viewport-m) {
+    &::scroll-button(*) {
+      display: none;
+    }
+  }
+}
+
+.carousel__item {
+  --spacing-min-size: 20.25;
+  --spacing-max-size: 30;
+
+  width: var(--fluid-spacing);
+  position: relative;
+  overflow: hidden;
+  scroll-snap-align: center;
+  container-type: scroll-state;
+
+  .carousel--mobile & {
+    @media (--viewport-m) {
+      width: revert;
+    }
+  }
+}

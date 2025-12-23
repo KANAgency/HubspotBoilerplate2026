@@ -359,28 +359,6 @@
     "display_width" : null,
     "default" : 12
   }, {
-    "id" : "post_section.sort_order",
-    "name" : "sort_order",
-    "label" : "Sort Order",
-    "required" : true,
-    "locked" : false,
-    "display" : "select",
-    "choices" : [ [ "name", "Name" ], [ "created", "Created" ], [ "updated", "Updated" ] ],
-    "multiple" : false,
-    "reordering_enabled" : true,
-    "visibility" : {
-      "controlling_field" : null,
-      "controlling_field_path" : "post_section.post_type",
-      "controlling_value_regex" : "blog",
-      "property" : null,
-      "operator" : "EQUAL",
-      "access" : null
-    },
-    "preset" : null,
-    "type" : "choice",
-    "display_width" : null,
-    "default" : "name"
-  }, {
     "id" : "post_section.has_tags",
     "name" : "has_tags",
     "label" : "Enable tags",

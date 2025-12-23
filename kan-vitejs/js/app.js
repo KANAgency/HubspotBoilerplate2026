@@ -11,6 +11,7 @@ import Accordion from './modules/Accordion';
 import ModalHandler from './modules/ModalHandler';
 import SiteAlertBannerHandler from './modules/SiteAlertBanner/SiteAlertBannerHandler';
 import NumberCounterHandler from "./modules/NumberCounterHandler";
+import Carousel from './modules/Carousel';
 
 class App {
   static instance = null
@@ -24,7 +25,8 @@ class App {
         Accordion,
         ModalHandler,
         SiteAlertBannerHandler,
-        NumberCounterHandler
+        NumberCounterHandler,
+        Carousel
       ]
       this.init()
       App.instance = this
