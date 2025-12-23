@@ -1,0 +1,23 @@
+
+  {% from 'kan-theme/templates/macros/teasers/usp-card.html' import uspCard %}
+
+<section class="module-usp center-grid py-xl-5">
+  <div class="inline-center gap-none">
+    <header class="header">
+      <h2 class="heading fontSize-h1">{{ module.content.heading }}</h2>
+      {% if module.content.preamble %}
+        <div class="preamble">
+          {{ module.content.preamble }}
+        </div>	
+      {% endif %}
+    </header>
+
+    {% if module.cards.card|length %}
+      <ul class="cards grid grid--{{ module.settings.columns }} grid--fill pt-xl-3">
+        {% for card in module.cards.card %}
+          {{ uspCard(card.icon, card.heading, card.content, card.features, card.theme, card.link) }}
+        {% endfor %}
+      </ul>
+  {% endif %}
+  </div>
+</section>

@@ -1,0 +1,37 @@
+{% from 'kan-theme/templates/macros/header/header.html' import header %}
+{% from 'kan-theme/templates/macros/media.html' import media %}
+{% from 'kan-theme/templates/macros/link/link-group.html' import linkGroup %}
+{% from "kan-theme/templates/macros/link/link-item.html" import linkItem %}
+
+{% set posts = module.content.posts %}
+
+<section class="{{ ["person-list-module center-grid py-xl-6"]| join(' ') }}">
+  {{ header(module.header.heading, module.header.preamble, false, {
+    headerClass: 'mb-xl-4',
+  } ) }}
+
+  {% if posts|length %}  
+    <ul class="person-list-module__list grid grid--4 grid--fill">
+      {% for post in posts %}
+          <li class="person-list-module__list-item">
+            <article class="person-teaser">
+              {{ media('image', post.image, false) }}
+              <header class="person-teaser__header">
+                <h3>{{ post.fullName }}</h3>
+              
+              <ul class="person-teaser__links link-group link-group--vertical">
+                {% if post.links|length%}
+                  {% for link in post.links %}
+                    <li>
+                      {{ linkItem(link.link, link.link_label) }}
+                      </li>
+                    {% endfor %}
+                  {% endif %}
+              </ul>
+              </header>
+            </article>
+          </li>
+      {% endfor %}
+  </ul>    
+{% endif %}
+</section>

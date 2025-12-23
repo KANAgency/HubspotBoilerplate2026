@@ -1,0 +1,22 @@
+<!--
+    templateType: page
+    isAvailableForNewContent: false
+
+    Available variants:
+        - default
+        - small
+-->
+{% macro checkList(list, icon_color, variant = '', customAttr = '') %}
+    {% if list|length %}
+        <ul class="check-list {{ variant ? 'check-list--' ~ variant : '' }}" {{ customAttr }}>
+          {% for item in list %}
+            <li class="list-item">
+                <svg class="icon {{ icon_color }}" aria-hidden="true">
+                    <use xlink:href="#iconCheckmark"></use>
+                </svg>
+                <div class="item-content fontSize-paragraph">{{ item.text_content }}</div>
+            </li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+{% endmacro %}

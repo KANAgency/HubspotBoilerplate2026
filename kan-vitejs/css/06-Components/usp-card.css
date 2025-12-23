@@ -1,0 +1,31 @@
+.usp-card {
+  padding: 1.5rem;
+  border-radius: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 1rem;
+
+  @media (--viewport-sm) {
+    padding: 2rem;
+  }
+
+  .usp-icon {
+    width: 2.25rem;
+    height: 2.25rem;
+    color: currentColor;
+  }
+
+  .usp-heading {
+    --_spacing-start: 0;
+    --_spacing-end: 0;
+  }
+
+  .content,
+  .content p {
+    --font-min-size: var(--fontSize-body-small-mobile);
+    --font-max-size: var(--fontSize-body-small-desktop);
+
+    font-size: var(--fluid-font-size);
+  }
+}

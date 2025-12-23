@@ -1,0 +1,27 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+{% from 'kan-theme/templates/macros/check-list.html' import checkList %}
+{% from 'kan-theme/templates/macros/link-item.html' import linkItem %}
+
+
+{% macro uspCard(icon, heading, content, list, theme, link) %}
+    <li class="usp-card" theme="{{ theme }}">
+        {% if icon %}    
+            <svg class="usp-icon" aria-hidden="true">
+                <use xlink:href="#{{ icon }}"></use>
+            </svg>
+        {% endif %}
+        {% if heading %}
+            <h3 class="usp-heading">{{ heading }}</h3>
+        {% endif %}
+        {% if content %}
+            <div class="content">{{ content }}</div>   
+        {% endif %}
+        {% if list|length %}
+            {{ checkList(list, '', 'small') }}
+        {% endif %}
+        {{ linkItem(link.link, link.link_label) }}
+    </li>
+{% endmacro %}
