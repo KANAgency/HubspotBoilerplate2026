@@ -8,13 +8,16 @@
 
 {# Imports #}
 {% from "kan-theme/templates/macros/breadcrumbs.html" import breadcrumbs %}
+{% from "kan-theme/templates/macros/filters/blog-filter.html" import blogFilter %}
 {% from "kan-theme/templates/macros/teasers/teaser-default.html" import teaserDefault %}
 {% from "kan-theme/templates/macros/pagination/pagination.html" import pagination %}              
 
 {% block body %}
     {{ breadcrumbs() }}
   <section class="center-grid py-xl-4" theme="light">
-  
+    
+    {{ blogFilter() }}
+
     <ul class="grid grid--3 grid--fill grid--r-gap-large pb-xl-4">
         {% for content in contents %}
 

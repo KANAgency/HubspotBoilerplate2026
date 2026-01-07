@@ -1,0 +1,27 @@
+{
+  "filterLabel": {
+    "message": "Filter:",
+    "description": null,
+    "placeholders": null
+  },
+  "filterAll": {
+    "message": "All",
+    "description": null,
+    "placeholders": null
+  },
+  "filterOn": {
+    "message": "Filter on",
+    "description": null,
+    "placeholders": null
+  },
+  "filterByTag": {
+    "message": "Filter posts by tags",
+    "description": null,
+    "placeholders": null
+  },
+  "filterByTagInstructions": {
+    "message": "Use the buttons to filter posts by tag.",
+    "description": null,
+    "placeholders": null
+  }
+}

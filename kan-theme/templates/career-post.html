@@ -1,0 +1,115 @@
+<!--
+  templateType: blog_post
+  isAvailableForNewContent: true
+  label: Career Post TPL - KAN
+  screenshotPath: ../images/template-previews/blog-post.png
+-->
+{% extends "./layouts/base.html" %}
+
+{# Macros #}
+{% from './macros/media.html' import media %}
+{% from "kan-theme/templates/macros/teasers/teaser-default.html" import teaserDefault %}
+
+{% block body %}
+  {# Modules #}
+  {% module "module_17659680249203" path="/kan-theme/modules/KAN - Career post options", label="KAN - Career post options" %}
+
+<article class="career-post-template center-grid py-xl-5">
+  <div class="career-post-template__grid">
+    <div class="career-post-content">
+      <header class="blog-header pb-xl-2">
+        <time class="text-heading font-weight-heading text-secondary" datetime="{{ content.publish_date }}">{{ content.publish_date|datetimeformat('%B %e, %Y') }}</time>
+        
+        <h1 class="blog-heading">{{ content.title }}</h1>
+        {% set featured_image = {
+          src: content.featured_image,
+          width: content.featured_image_width,
+          height: content.featured_image_height,
+          alt: content.featured_image_alt_text,
+          loading: 'eager'
+        }
+        %}
+        {{ media('image', featured_image) }}
+      </header>
+
+      {% if content.post_body %}
+        <section class="blog-content">
+            <div class="blog-body-content">
+              {{ content.post_body }}
+            </div>
+        </section>
+      {% endif %}
+    </div>
+    <aside>
+      {% module "module_17677815863352" path="/kan-theme/modules/KAN - Form basic", label="Careers form" %}
+    </aside>
+  </div>
+</article>
+
+{# Get the current blog post ID #}
+{% set current_post_id = content.id %}
+
+{# Fetch latest blog posts from the current blog, excluding the current post #}
+{% set latest_posts = blog_recent_posts(
+    "default", 
+    limit=4,
+    blog_id=group.id
+) %}
+
+{# Filter out the current post #}
+{% set filtered_posts = [] %}
+{% for post in latest_posts %}
+    {% if post.id != current_post_id %}
+        {% do filtered_posts.append(post) %}
+    {% endif %}
+{% endfor %}
+
+{% if filtered_posts|length > 0 %}
+<section class="related-posts center-grid py-xl-4" theme="light">
+    <h2>Andra roller vi söker</h2>
+    <div class="grid grid--3 grid--fill grid--r-gap-large pb-xl-4">
+        {% for post in filtered_posts[:3] %}
+          {% set post_tags = [] %}
+              
+            {% for tag in post.tag_list %}
+                {% do post_tags.append({
+                "tag_label": tag.name,
+                "icon": "",
+                "link": { 
+                    "url": { 
+                    "href": blog_tag_url(tag.id, tag.slug)
+                    }, 
+                    "open_in_new_tab": false,
+                    "rel": ""
+                }
+                }) %}
+            {% endfor %}
+
+            {{ teaserDefault(
+            {
+                "type": "image",
+                "image": {
+                "src": post.featured_image,
+                "alt": post.featured_image_alt_text,
+                "width": post.featured_image_width,
+                "height": post.featured_image_height,
+                "loading": loop.index > 8 ? 'lazy' : 'eager'
+                },
+                "video": false
+            },
+            post.name ,
+            post.post_summary|safe|striptags|truncate(125, false),
+            { "url": { "href": post.absolute_url } },
+            {
+                tags: post_tags,
+                headingClass: 'font-size--h4'
+            }
+            ) }}
+
+        {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+
+{% endblock body %}

@@ -1,0 +1,54 @@
+<!--
+  templateType: blog_listing
+  isAvailableForNewContent: true
+  label: KAN - Career listing
+  screenshotPath: ../images/template-previews/blog-index.png
+-->
+{% extends "./layouts/base.html" %}
+
+{# Imports #}
+{% from "kan-theme/templates/macros/pagination/pagination.html" import pagination %}      
+{% from 'kan-theme/templates/macros/pill/pill-list.html' import pillList %}
+
+{% block body %}
+  {% module "module_17677808310421" path="/kan-theme/modules/KAN - Page header", label="KAN - Page header" %}
+
+  <section class="career-listing-template center-grid pb-xl-4" theme="light">
+
+    <ul class="career-list pb-xl-4">
+        {% for content in contents %}
+
+            {% set post_tags = [] %}
+
+            {% for tag in content.tag_list %}
+            {% do post_tags.append({
+                "tag_label": tag.name,
+                "icon": "",
+                "link": { 
+                "url": { 
+                    "href": blog_tag_url(group.id, tag.slug)
+                    }, 
+                "open_in_new_tab": false,
+                "rel": ""
+                }
+            }) %}
+            {% endfor %}
+
+            <li class="career-list__item py-l">
+                <article class="career-article">
+                    <header class="career-article__header">
+                        <h2 class="font-size--h4">{{ content.title }}</h2>
+                        {{ pillList(post_tags) }}
+                    </header>
+                    <div class="career-article__body">
+                        <a class="btn" href="{{ content.absolute_url }}" aria-label="Explore position - {{ content.title }}">Explore position</a>
+                    </div>
+
+                </article>
+            </li>
+        {% endfor %}    
+    </ul>
+    {{ pagination() }}
+  </section>
+{% endblock body %}
+  

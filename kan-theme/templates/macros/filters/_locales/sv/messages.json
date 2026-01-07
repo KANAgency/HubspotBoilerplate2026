@@ -1,0 +1,27 @@
+{
+  "filterLabel": {
+    "message": "Filter:",
+    "description": null,
+    "placeholders": null
+  },
+  "filterAll": {
+    "message": "Alla",
+    "description": null,
+    "placeholders": null
+  },
+  "filterOn": {
+    "message": "Filtrera på",
+    "description": null,
+    "placeholders": null
+  },
+  "filterByTag": {
+    "message": "Filtrera inlägg efter taggar",
+    "description": null,
+    "placeholders": null
+  },
+  "filterByTagInstructions": {
+    "message": "Använd knapparna för att filtrera inlägg efter tagg.",
+    "description": null,
+    "placeholders": null
+  }
+}

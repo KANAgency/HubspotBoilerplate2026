@@ -99,7 +99,6 @@ h6 {
   10. Set a max-width for text content to improve readability
 */
 p,
-li:not([class]),
 figcaption {
   text-wrap: pretty;
   max-width: 65ch;

@@ -1,0 +1,25 @@
+<!--
+  templateType: "none"
+  isAvailableForNewContent: false
+-->
+{% set template_translations = load_translations('kan-theme/templates/macros/filters/_locales', html_lang, 'en' ) %}
+
+{% macro blogFilter() %}
+    {% set tags = blog_tags("default", 250) %}
+
+    {% if tags|length %}
+        <nav class="filter pb-l mb-l border-b border--secondary" aria-labelledby="blog-listing-filter">     
+            <label for="blog-filter-select" class="filter-heading font-heading">{{ template_translations.filterLabel.message }}</label> 
+            <select id="blog-filter-select" class="filter-select" onchange="if(this.value) window.location.href=this.value" aria-label="{{ template_translations.filterLabel.message }}">
+                <option value="{{ content_group.absolute_url }}" {{ tag ? '' : 'selected' }}>
+                    {{ template_translations.filterAll.message }}
+                </option>
+                {% for item in tags %}
+                    <option value="{{ blog_tag_url(group.id, item.slug) }}" {{ item.slug == tag ? 'selected' : '' }}>
+                        {{ item }}
+                    </option>
+                {% endfor %}
+            </select>
+        </nav>
+    {% endif %}
+{% endmacro %}
