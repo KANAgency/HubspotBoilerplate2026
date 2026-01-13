@@ -13,7 +13,13 @@
   
 <footer class="site-footer center-grid py-xl-4" theme="dark">
   <div class="site-footer__top pb-xl-4">
+
     <div class="site-footer__menu-container">
+      <a class="site-header__logo-link mb-l" href="/{{ html_lang }}" aria-label="{{ toHomePage }}">
+          <svg class="site-header__logotype" aria-hidden="true">
+            <use xlink:href="#logoPlaceholder"></use>
+          </svg>
+        </a> 
       {{ simple_menu(footer_menu.children) }}
     </div>
 

@@ -44,6 +44,17 @@
       <time class="text-heading font-weight-heading text-secondary" datetime="{{ content.publish_date }}">{{ content.publish_date|datetimeformat('%B %e, %Y') }}</time>
       {% if author %}
         <div>Author: <a href="{{ author.absolute_url }}">{{ author.name }}</a></div>
+        <div class="author-image">
+          {% set author_image = {
+            src: author.featured_image,
+            width: author.featured_image_width,
+            height: author.featured_image_height,
+            alt: author.name,
+            loading: 'eager'
+          }
+          %}
+          {{ media('image', author_image) }}
+        </div>
       {% endif %}
       <h1 class="blog-heading">{{ content.title }}</h1>
       {% set featured_image = {
