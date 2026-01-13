@@ -1,0 +1,39 @@
+<!--
+  templateType: blog_post
+  isAvailableForNewContent: true
+  label: Author Post TPL - KAN
+  screenshotPath: ../images/template-previews/blog-post.png
+-->
+{% extends "./layouts/base.html" %}
+
+{# Macros #}
+{% from './macros/media.html' import media %}
+
+{% block body %}
+<article class="author-post-template center-grid py-xl-5">
+  <div class="inline-center">
+    <header class="author-header content-width-large pb-xl-2">
+      <time class="text-heading font-weight-heading text-secondary" datetime="{{ content.publish_date }}">{{ content.publish_date|datetimeformat('%B %e, %Y') }}</time>
+      
+      <h1 class="author-heading">{{ content.title }}</h1>
+      {% set featured_image = {
+        src: content.featured_image,
+        width: content.featured_image_width,
+        height: content.featured_image_height,
+        alt: content.featured_image_alt_text,
+        loading: 'eager'
+      }
+      %}
+      {{ media('image', featured_image) }}
+    </header>
+
+    {% if content.post_body %}
+      <section class="content-width">
+          <div class="blog-body-content">
+            {{ content.post_body }}
+          </div>
+      </section>
+    {% endif %}
+  </div>
+</article>
+{% endblock body %}

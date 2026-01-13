@@ -9,4 +9,14 @@
     "type" : "text",
     "display_width" : null,
     "default" : ""
-  } ]
+  },
+{
+  "name": "author_page",
+  "label": "Author page",
+  "help_text": "Select the author page to be used.",
+  "required": false,
+  "locked": false,
+  "placeholder": "Select author page",
+  "type": "page",
+  "default": null
+} ]
