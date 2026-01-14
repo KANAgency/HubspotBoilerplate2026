@@ -1,0 +1,50 @@
+.quote-module {
+  @media (--mobile-only) {
+    padding-block-end: 0;
+  }
+
+  @media (--tablet-only) {
+    padding-block: 0;
+  }
+
+  .quote-module-grid {
+    align-items: center;
+  }
+
+  .figure {
+    grid-column: main-start / main-end;
+
+    @media (--viewport-sm) {
+      grid-column: main-start / main-center;
+    }
+
+    & .image {
+      @media (--viewport-sm) {
+        object-fit: cover;
+      }
+    }
+  }
+
+  .quote-text {
+    p {
+      font-weight: var(--fontWeight-quote);
+      line-height: var(--fontLh-quote);
+    }
+  }
+
+  .quote-container {
+    grid-column: main-start / main-end;
+    display: flex;
+    flex-direction: column;
+
+    @media (--mobile-only) {
+      --spacing-min-size: var(--spacing-4XL-mobile);
+      --spacing-max-size: var(--spacing-4XL-desktop);
+    }
+
+    @media (--viewport-sm) {
+      grid-column: main-center / main-end;
+      margin-left: var(--grid-gap);
+    }
+  }
+}

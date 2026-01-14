@@ -1,4 +1,7 @@
-.site-header {
+[data-global-resource-path="kan-theme/templates/partials/header.html"] {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-sticky);
 }
 
 .site-header__main {

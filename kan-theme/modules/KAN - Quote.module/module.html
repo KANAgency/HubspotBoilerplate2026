@@ -1,0 +1,36 @@
+{% from 'kan-theme/templates/macros/media.html' import media %}
+
+{% set quote_size = module.quote_size %}
+{% set quote = module.quote %}
+{% set quoted_person = module.quoted_person %}
+{% set link_label = module.link_label %}
+{% set link_to_source = module.link_to_source %}
+
+{% if quote %}
+    <figure class="quote-module py-xl-3" theme="dark">
+        <div class="quote-module-grid center-grid-split xs-gap-none">
+            {{ media(module.media.type, module.media.image, module.media.video) }}
+            <div class="quote-container py-xl-5" data-fade-in>
+                <blockquote class="quote-text {{ quote_size }}" cite="{{ link_to_source.url.href }}">{{ quote }}</blockquote>
+        
+                {% if quoted_person %}
+                    <figcaption class="caption font-weight-body">
+                    {{ quoted_person }}
+                    {% if link_to_source and link_label|length %}
+                        <a href="{{ link_to_source.url.href }}" class="text-link"
+                                {% if link_to_source.open_in_new_tab %}
+                                    target="_blank"
+                                {% endif %}
+                                {% if link_to_source.rel %}
+                                    rel="{{ link_to_source.rel|escape_attr }}"
+                                {% endif %}
+                                >
+                                {{ link_label }}
+                            </a>
+                        {% endif %}
+                    </figcaption>
+                {% endif %}
+            </div>
+        </div>
+    </figure>
+{% endif %}

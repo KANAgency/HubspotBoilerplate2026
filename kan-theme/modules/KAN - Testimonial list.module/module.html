@@ -1,0 +1,40 @@
+{% from 'kan-theme/templates/macros/header/header.html' import header %}
+{% from 'kan-theme/templates/macros/media.html' import media %}
+{% from 'kan-theme/templates/macros/link/link-item.html' import linkItem %}
+{% from 'kan-theme/templates/macros/link/link-item-icon.html' import linkItemIcon %}
+
+{% set posts = module.content.posts %}
+
+<section class="{{ ["testimonial-list-module center-grid py-xl-6"]| join(' ') }}">
+  {{ header(module.header.heading, module.header.preamble, false, {
+    headerClass: 'mb-xl-4',
+  } ) }}
+
+  {% if posts|length %}
+    <div class="carousel-container">
+    <div class="carousel" data-name="carousel-container" data-carousel-draggable="true">
+      <ul class="{{ ["testimonial-list-module__list grid grid--fill", "carousel__inner" ]|join(' ') }}" data-name="carousel">
+        {% for post in posts %}
+            <li class="{{ ["testimonial-list-module__list-item", 'carousel__item', 'carousel__item--large']|join(' ') }}">
+              <article class="testimonial-teaser px-xl">
+              <div class="testimonial-teaser__inner pt-xl-2">
+                <header class="testimonial-teaser__header">
+                  <p class="testimonial-teaser__pretitle text-uppercase font-emphasis">{{ post.pretitle }}</p>
+                  <h3 class="testimonial-teaser__heading">{{ post.heading }}</h3>
+                </header>
+                <div class="testimonial-teaser__body pb-xl">
+                  {{ media('image', post.image, false) }}
+                  <div class="testimonial-teaser__footer pt-m">
+                    <span>{{ post.cite }}</span>
+                    {{ linkItemIcon({link: post.link, link_label: 'Läs kundcase'}) }}
+                  </div>
+                </div>
+                </div>
+              </article>
+            </li>
+        {% endfor %}
+      </ul>
+    </div>
+    </div>
+  {% endif %}
+</section>

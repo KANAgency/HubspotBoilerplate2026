@@ -15,7 +15,7 @@
     {% if module.cards.card|length %}
       <ul class="cards grid grid--{{ module.settings.columns }} grid--fill pt-xl-3">
         {% for card in module.cards.card %}
-          {{ uspCard(card.icon, card.heading, card.content, card.features, card.theme, card.link) }}
+          {{ uspCard(card.icon, card.heading, card.content, card.features, card.theme, { link: card.link.url, link_label: card.link.link_label }) }}
         {% endfor %}
       </ul>
   {% endif %}

@@ -1,0 +1,179 @@
+[ {
+  "id" : "a38cbc58-f347-cc95-9e34-90c509660fcb",
+  "name" : "quote_size",
+  "label" : "Quote size",
+  "required" : false,
+  "locked" : false,
+  "display" : "select",
+  "choices" : [ [ "inherit-font-ize--quote font-size--quote", "Default quote" ], [ "inherit-font-ize--h3 font-size--h3", "Large" ], [ "inherit-font-ize--h4 font-size--h4", "Medium" ], [ "inherit-font-ize--h5 font-size--h5", "Small" ], [ "inherit-font-ize--h6 font-size--h6", "Extra small" ] ],
+  "multiple" : false,
+  "reordering_enabled" : true,
+  "preset" : null,
+  "type" : "choice",
+  "display_width" : null,
+  "default" : "inherit-font-ize--quote font-size--quote"
+}, {
+  "id" : "b28adc49-f347-cc95-9e34-90c509660fcb",
+  "name" : "quote",
+  "label" : "Quote",
+  "required" : false,
+  "locked" : false,
+  "type" : "richtext",
+  "display_width" : null
+}, {
+  "id" : "fc6f6c92-bcc1-7e4d-0aae-a9ff9779d362",
+  "name" : "quoted_person",
+  "label" : "Quoted person",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null
+}, {
+  "id" : "ea6f6c92-bcc1-7e4d-0aae-a9ff9779d362",
+  "name" : "link_label",
+  "label" : "Link label",
+  "required" : false,
+  "locked" : false,
+  "allow_new_line" : false,
+  "type" : "text",
+  "display_width" : null
+}, {
+  "id" : "fa9f3a3b-bab0-859b-cacb-10d6bea5f171",
+  "name" : "link_to_source",
+  "label" : "Link to source",
+  "required" : false,
+  "locked" : false,
+  "supported_types" : [ "EXTERNAL", "CONTENT", "FILE", "EMAIL_ADDRESS", "BLOG", "CALL_TO_ACTION", "PHONE_NUMBER", "WHATSAPP_NUMBER", "PAYMENT" ],
+  "show_advanced_rel_options" : false,
+  "type" : "link",
+  "display_width" : null,
+  "default" : {
+    "url" : {
+      "content_id" : null,
+      "type" : "EXTERNAL",
+      "href" : ""
+    },
+    "open_in_new_tab" : false,
+    "no_follow" : false
+  }
+}, {
+  "id" : "064aa9a1-b51a-f36f-04ed-113ab7b5e563",
+  "name" : "media",
+  "label" : "Media - Image / Video",
+  "required" : false,
+  "locked" : false,
+  "children" : [ {
+    "id" : "2ed39b5c-e4b2-a657-2edc-fa80fa309668",
+    "name" : "type",
+    "label" : "Media Type",
+    "required" : false,
+    "locked" : false,
+    "display" : "select",
+    "choices" : [ [ "image", "Image" ], [ "video", "Video" ] ],
+    "multiple" : false,
+    "reordering_enabled" : true,
+    "preset" : null,
+    "type" : "choice",
+    "display_width" : null,
+    "default" : "image"
+  }, {
+    "id" : "5e06d657-a4bd-f008-3a7b-05f1f40ce54b",
+    "name" : "image",
+    "label" : "Image",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "media.type",
+      "controlling_value_regex" : "image",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "responsive" : true,
+    "resizable" : false,
+    "show_loading" : true,
+    "type" : "image",
+    "display_width" : null,
+    "default" : {
+      "src" : "https://4354097.fs1.hubspotusercontent-na1.net/hubfs/4354097/dev/placeholder-450x500.png",
+      "alt" : "placeholder-450x500",
+      "width" : 500,
+      "height" : 450,
+      "max_width" : 500,
+      "max_height" : 450
+    }
+  }, {
+    "picker" : "video",
+    "id" : "f96c043c-d863-9eb2-6d28-5ad5ff75957c",
+    "name" : "video",
+    "label" : "Video",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "media.type",
+      "controlling_value_regex" : "video",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "type" : "file",
+    "display_width" : null
+  }, {
+    "id" : "media.enable_audio_toggle",
+    "name" : "enable_audio_toggle",
+    "label" : "Enable audio toggle",
+    "inline_help_text" : "Shows audio toggle button on video.",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "media.type",
+      "controlling_value_regex" : "video",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "display" : "toggle",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : false
+  }, {
+    "id" : "e87e132c-d863-9eb2-6d28-5ad5ff75957c",
+    "name" : "size_cover",
+    "label" : "Video size contain / cover",
+    "inline_help_text" : "Sets video size to respect aspect ratio (contain) or fill the entire container (cover).",
+    "required" : false,
+    "locked" : false,
+    "visibility" : {
+      "controlling_field" : null,
+      "controlling_field_path" : "media.type",
+      "controlling_value_regex" : "video",
+      "property" : null,
+      "operator" : "EQUAL",
+      "access" : null
+    },
+    "display" : "toggle",
+    "type" : "boolean",
+    "display_width" : null,
+    "default" : false
+  } ],
+  "tab" : "CONTENT",
+  "expanded" : false,
+  "group_occurrence_meta" : null,
+  "type" : "group",
+  "display_width" : null,
+  "default" : {
+    "type" : "image",
+    "image" : {
+      "src" : "https://4354097.fs1.hubspotusercontent-na1.net/hubfs/4354097/dev/placeholder-450x500.png",
+      "alt" : "placeholder-450x500",
+      "width" : 500,
+      "height" : 450,
+      "max_width" : 500,
+      "max_height" : 450
+    }
+  }
+} ]
